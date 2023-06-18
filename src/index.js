@@ -1,1 +1,3 @@
-console.log("Hello World!");
+import { makeHomepage } from "./homepage";
+
+makeHomepage(true);
