@@ -1,5 +1,5 @@
 import "./styles.css";
-import { navBar } from "./navbar";
+import { navBar, createModal } from "./navbar";
 
 export function makeHomepage(initialLoad) {
   createElements(initialLoad);
@@ -17,6 +17,7 @@ function createElements(initialLoad) {
     body.appendChild(navBarDiv);
 
     navBar();
+    createModal();
 
     const hero = document.createElement("div");
     hero.classList.add("hero");

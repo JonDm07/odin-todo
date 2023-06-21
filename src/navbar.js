@@ -1,18 +1,29 @@
-let numOfProjects = 0;
+export function navBar() {
+  let numOfProjects = 0;
 
-function createModal() {
+  const navBarDiv = document.querySelector(".nav-bar");
+
+  const projectBtn = document.createElement("button");
+  projectBtn.textContent = "Add Project";
+  navBarDiv.appendChild(projectBtn);
+
+  const list = document.createElement("ul");
+  navBarDiv.appendChild(list);
+
+  const span = document.createElement("span");
+  list.appendChild(span);
+  span.textContent = `Projects: ${numOfProjects}`;
+}
+
+export function createModal() {
   const body = document.querySelector("body");
 
-  const wrapper = document.createElement("div");
-  wrapper.classList.add("nav-modal-wrapper");
-  body.appendChild(wrapper);
-
-  const div = document.createElement("div");
-  wrapper.appendChild(div);
-  div.classList.add("nav-modal");
+  const modalDiv = document.createElement("div");
+  body.appendChild(modalDiv);
+  modalDiv.classList.add("nav-modal");
 
   const form = document.createElement("form");
-  div.appendChild(form);
+  modalDiv.appendChild(form);
 
   const label = document.createElement("label");
   label.setAttribute("for", "project-name");
@@ -30,45 +41,15 @@ function createModal() {
   form.appendChild(submitBtn);
 }
 
-function createProject(name) {
-  const list = document.querySelector("ul");
+export function displayModal() {
+  const modal = document.querySelector(".nav-modal");
+  const projectBtn = document.querySelector(".nav-bar > button");
 
-  const listItem = document.createElement("li");
-  list.appendChild(listItem);
-
-  const anchor = document.createElement("a");
-  anchor.textContent = `${name}`;
-  listItem.appendChild(anchor);
-}
-
-export function navBar() {
-  const navBarDiv = document.querySelector(".nav-bar");
-
-  const addProjectBtn = document.createElement("button");
-  addProjectBtn.textContent = "Add Project";
-  navBarDiv.appendChild(addProjectBtn);
-
-  const list = document.createElement("ul");
-  navBarDiv.appendChild(list);
-
-  const span = document.createElement("span");
-  list.appendChild(span);
-  span.textContent = `Projects: ${numOfProjects}`;
-
-  addProjectBtn.addEventListener("click", () => {
-    createModal();
-
-    const submitBtn = document.querySelector("form > button");
-
-    submitBtn.onclick = function (e) {
-      e.preventDefault();
-
-      const name = document.querySelector("input").value;
-
-      createProject(name);
-      numOfProjects++;
-
-      span.textContent = `Projects: ${numOfProjects}`;
-    };
-  });
+  if (modal.style.display === "block") {
+    modal.style.display = "";
+    projectBtn.textContent = "Add Project";
+  } else if (modal.style.display === "") {
+    modal.style.display = "block";
+    projectBtn.textContent = "Cancel";
+  }
 }
