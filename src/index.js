@@ -1,10 +1,8 @@
 import { makeHomepage } from "./homepage";
 import { navBar, createModal, displayModal } from "./navbar";
-import { objectsInterface, createProject } from "./projects";
+import { submitForm } from "./form.js";
 
 makeHomepage(true);
-
-let projects = [];
 
 document.querySelector(".nav-bar > button").addEventListener("click", () => {
   displayModal();
@@ -15,15 +13,6 @@ document
   .addEventListener("click", (e) => {
     e.preventDefault();
 
-    let name = document.querySelector(
-      'form > label > input[type="text"]'
-    ).value;
-
-    let project = createProject("project");
-    objectsInterface.changeName(project, name);
-
-    projects.push(project);
-
-    console.log(projects);
+    submitForm();
     displayModal();
   });

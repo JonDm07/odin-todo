@@ -3,6 +3,8 @@ export function createProject(type) {
 }
 
 export const objectsInterface = {
+  projectsArray: [],
+  currentSelectedProject: undefined,
   changeName: function (object, name) {
     object.name = name;
   },
