@@ -1,6 +1,8 @@
 import { makeHomepage } from "./homepage";
-import { navBar, createModal, displayModal } from "./navbar";
+import { navBar, createModal, displayModal, updateProjectsNum } from "./navbar";
 import { submitForm } from "./form.js";
+import { displayProjects } from "./hero.js";
+import { objectsInterface } from "./projects";
 
 makeHomepage(true);
 
@@ -15,4 +17,8 @@ document
 
     submitForm();
     displayModal();
+
+    displayProjects(objectsInterface.projectsArray);
+
+    updateProjectsNum(objectsInterface.projectsArray.length);
   });

@@ -1,5 +1,7 @@
+import { objectsInterface } from "./projects";
+
 export function navBar() {
-  let numOfProjects = 0;
+  let numOfProjects = objectsInterface.projectsArray.length;
 
   const navBarDiv = document.querySelector(".nav-bar");
 
@@ -52,4 +54,9 @@ export function displayModal() {
     modal.style.display = "block";
     projectBtn.textContent = "Cancel";
   }
+}
+
+export function updateProjectsNum(num) {
+  const span = document.querySelector(".nav-bar > ul > span");
+  span.textContent = `Projects: ${num}`;
 }
