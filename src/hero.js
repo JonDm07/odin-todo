@@ -10,9 +10,25 @@ export function displayProjects(projectsArray) {
     projectDiv.classList.add("project-div");
     hero.appendChild(projectDiv);
 
-    const para = document.createElement("p");
-    projectDiv.appendChild(para);
+    const name = document.createElement("p");
+    projectDiv.appendChild(name);
 
-    para.textContent = projectsArray[i].name;
+    name.textContent = projectsArray[i].name;
+
+    const priority = document.createElement("p");
+    projectDiv.appendChild(priority);
+
+    priority.textContent = projectsArray[i].priority;
+
+    const renameButton = document.createElement("button");
+    renameButton.classList.add("rename");
+    renameButton.textContent = "R";
+    projectDiv.appendChild(renameButton);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete");
+    deleteButton.style.color = "red";
+    deleteButton.textContent = "X";
+    projectDiv.appendChild(deleteButton);
   }
 }

@@ -8,8 +8,9 @@ body {
     padding: 0px;
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 1fr 5.5fr 1fr;
-    overflow: hidden;
+    grid-template-rows: 1fr 5.5fr 0.5fr;
+    overflow: auto;
+
 }
 
 header {
@@ -35,7 +36,7 @@ header {
     display: none;
     position: fixed;
     height: 150px;
-    width: 330px;
+    width: 300px;
     border-radius: 10px;   
     background-color: white;
     border: 1px black solid;
@@ -44,19 +45,48 @@ header {
 }
 
 .nav-modal > form {
+    display: flex;
+    flex-direction: column;
     padding: 10px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.hero {
-    grid-row: 2 / -1;
+.nav-modal > form > label {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-modal > form > label > .invalid {
+    border: 1px solid red;
+}
+
+
+
+
+.hero > .project-div {
+    padding-left: 10px;
+    border: 1px solid black;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.project-div > button {
+    height: 30px;
+    width: 30px;
+
+    border-radius: 10px;
+    border: 1px dashed black;
 }
 
 footer {
-    width: 100vw;
-    height: 80px;
-    position: fixed;
-    bottom: 0px;
+    grid-row: -2 / -1;
+    grid-column: 2 / -1;
+
+    min-height: 70px;
     background-color: #CBC9FF;
     border: none;
-    z-index: -1;
 }

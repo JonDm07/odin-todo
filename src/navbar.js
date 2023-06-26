@@ -17,15 +17,17 @@ export function navBar() {
   span.textContent = `Projects: ${numOfProjects}`;
 }
 
-export function createModal() {
-  const body = document.querySelector("body");
+function addButtons() {
+  const form = document.querySelector("form");
 
-  const modalDiv = document.createElement("div");
-  body.appendChild(modalDiv);
-  modalDiv.classList.add("nav-modal");
+  const submitBtn = document.createElement("button");
+  submitBtn.setAttribute("type", "submit");
+  submitBtn.textContent = "Submit";
+  form.appendChild(submitBtn);
+}
 
-  const form = document.createElement("form");
-  modalDiv.appendChild(form);
+function addInputs() {
+  const form = document.querySelector("form");
 
   const label = document.createElement("label");
   label.setAttribute("for", "project-name");
@@ -35,12 +37,44 @@ export function createModal() {
   const input = document.createElement("input");
   input.setAttribute("type", "text");
   input.setAttribute("id", "project-name");
+  input.setAttribute("name", "project-name");
   label.appendChild(input);
 
-  const submitBtn = document.createElement("button");
-  submitBtn.setAttribute("type", "submit");
-  submitBtn.textContent = "Submit";
-  form.appendChild(submitBtn);
+  const selectLabel = document.createElement("label");
+  selectLabel.textContent = "Priority";
+  form.appendChild(selectLabel);
+
+  const selectInput = document.createElement("select");
+  selectLabel.appendChild(selectInput);
+
+  let options = [];
+
+  for (let i = 0; i < 5; i++) {
+    const option = document.createElement("option");
+    option.setAttribute("value", i + 1);
+    option.text = `${i + 1}`;
+    selectInput.appendChild(option);
+    options.push(option);
+  }
+}
+
+function createForm() {
+  const modalDiv = document.querySelector(".nav-modal");
+
+  const form = document.createElement("form");
+  modalDiv.appendChild(form);
+}
+
+export function createModal() {
+  const body = document.querySelector("body");
+
+  const modalDiv = document.createElement("div");
+  body.appendChild(modalDiv);
+  modalDiv.classList.add("nav-modal");
+
+  createForm();
+  addInputs();
+  addButtons();
 }
 
 export function displayModal() {
