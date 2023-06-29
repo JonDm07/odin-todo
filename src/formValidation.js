@@ -28,6 +28,7 @@ export const formValidation = {
 export function submitForm() {
   let name = document.querySelector('form > label > input[type="text"]');
   let priority = document.querySelector("form > label > select");
+  let description = document.querySelector("form > label > textarea");
 
   if (formValidation.checkIfEmpty(name.value) === true) {
     name.classList.add("invalid");
@@ -47,6 +48,7 @@ export function submitForm() {
   let project = createProject("project");
   objectsInterface.changeName(project, name.value);
   objectsInterface.changePriority(project, priority.value);
+  objectsInterface.changeDescription(project, description.value);
 
   objectsInterface.projectsArray.push(project);
 

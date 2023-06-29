@@ -1,5 +1,6 @@
 import { makeHomepage } from "./homepage";
-import { navBar, createModal, displayModal, updateProjectsNum } from "./navbar";
+import { navBar, displayModal, updateProjectsNum } from "./navbar";
+import { createModal } from "./projectsModal";
 import { submitForm } from "./formValidation.js";
 import { displayProjects } from "./hero.js";
 import { objectsInterface } from "./projects";

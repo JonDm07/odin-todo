@@ -27,4 +27,11 @@ export const objectsInterface = {
 
     object.tasks.push(...task);
   },
+  getIndexOfProject: function (name) {
+    for (let i = 0; i < this.projectsArray.length; i++) {
+      if (name === this.projectsArray[i].name) {
+        return i;
+      }
+    }
+  },
 };

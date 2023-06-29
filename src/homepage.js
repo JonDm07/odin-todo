@@ -1,5 +1,7 @@
 import "./styles.css";
-import { navBar, createModal } from "./navbar";
+import { navBar } from "./navbar";
+import { createModal } from "./projectsModal";
+import { createRenameModal } from "./renameModal";
 
 export function makeHomepage(initialLoad) {
   createElements(initialLoad);
@@ -18,6 +20,7 @@ function createElements(initialLoad) {
 
     navBar();
     createModal();
+    createRenameModal();
 
     const hero = document.createElement("div");
     hero.classList.add("hero");

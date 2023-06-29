@@ -20,15 +20,35 @@ export function displayProjects(projectsArray) {
 
     priority.textContent = projectsArray[i].priority;
 
+    const description = document.createElement("p");
+    projectDiv.appendChild(description);
+
+    description.textContent = projectsArray[i].description;
+
     const renameButton = document.createElement("button");
     renameButton.classList.add("rename");
     renameButton.textContent = "R";
     projectDiv.appendChild(renameButton);
+
+    renameButton.addEventListener("click", () => {
+      const renameModal = document.querySelector(".rename-modal");
+
+      if (
+        renameModal.style.display === "" ||
+        renameModal.style.display === "none"
+      ) {
+        renameModal.style.display = "block";
+      }
+    });
 
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete");
     deleteButton.style.color = "red";
     deleteButton.textContent = "X";
     projectDiv.appendChild(deleteButton);
+
+    const checkBox = document.createElement("button");
+    checkBox.classList.add("checkbox-off");
+    projectDiv.appendChild(checkBox);
   }
 }
