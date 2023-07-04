@@ -3,7 +3,14 @@ export function createProject(type) {
 }
 
 export const objectsInterface = {
-  projectsArray: [],
+  projectsArray: [
+    {
+      description: "",
+      name: "Hello World",
+      priority: "1",
+      type: "project",
+    },
+  ],
   currentSelectedProject: undefined,
   changeName: function (object, name) {
     object.name = name;

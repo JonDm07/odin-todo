@@ -1,16 +1,18 @@
 import "./styles.css";
 import { navBar } from "./navbar";
-import { createModal } from "./projectsModal";
-import { createRenameModal } from "./renameModal";
+import { projectModal } from "./projectsModal";
+import { renameModal } from "./renameModal";
 
-export function makeHomepage(initialLoad) {
-  createElements(initialLoad);
-}
+export const homepage = {
+  makeHomepage: function (initialLoad) {
+    createElement(initialLoad);
+  },
+};
 
-function createElements(initialLoad) {
-  const body = document.querySelector("body");
-
+function createElement(initialLoad) {
   if (initialLoad === true) {
+    const body = document.querySelector("body");
+
     const header = document.createElement("header");
     body.appendChild(header);
 
@@ -18,9 +20,9 @@ function createElements(initialLoad) {
     navBarDiv.classList.add("nav-bar");
     body.appendChild(navBarDiv);
 
-    navBar();
-    createModal();
-    createRenameModal();
+    navBar.createNavBar();
+    projectModal.createModal();
+    renameModal.createModal();
 
     const hero = document.createElement("div");
     hero.classList.add("hero");

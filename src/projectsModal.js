@@ -54,14 +54,16 @@ function createForm() {
   modalDiv.appendChild(form);
 }
 
-export function createModal() {
-  const body = document.querySelector("body");
+export const projectModal = {
+  createModal: function () {
+    const body = document.querySelector("body");
 
-  const modalDiv = document.createElement("div");
-  body.appendChild(modalDiv);
-  modalDiv.classList.add("nav-modal");
+    const modalDiv = document.createElement("div");
+    body.appendChild(modalDiv);
+    modalDiv.classList.add("nav-modal");
 
-  createForm();
-  addInputs();
-  addButtons();
-}
+    createForm();
+    addInputs();
+    addButtons();
+  },
+};
