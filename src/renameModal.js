@@ -23,7 +23,7 @@ export const renameModal = {
     label.appendChild(input);
 
     const submitBtn = document.createElement("button");
-    submitBtn.classList.add("rename", "submit");
+    submitBtn.classList.add("rename-submit");
     submitBtn.setAttribute("type", "submit");
     submitBtn.textContent = "Submit";
 
@@ -31,7 +31,7 @@ export const renameModal = {
 
     const closeButton = document.createElement("button");
     closeButton.textContent = "X";
-    closeButton.classList.add("rename", "close");
+    closeButton.classList.add("rename-close");
     closeButton.setAttribute("type", "button");
 
     form.appendChild(closeButton);
@@ -40,12 +40,12 @@ export const renameModal = {
   },
 
   closeButton: function () {
-    const button = document.querySelector(".rename.close");
+    const button = document.querySelector(".rename-close");
     return button;
   },
 
   submitButton: function () {
-    const button = document.querySelector(".rename.submit");
+    const button = document.querySelector(".rename-submit");
     return button;
   },
 };

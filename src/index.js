@@ -9,8 +9,7 @@ import { buttonListeners } from "./buttonListeners";
 
 homepage.makeHomepage(true);
 
-buttonListeners.doHomepageListeners();
-buttonListeners.doRenameModalListeners();
+hero.displayProjects(false);
 
 document
   .querySelector(".nav-modal > form > button")
@@ -25,5 +24,3 @@ document
 
     navBar.updateProjectsNum(objectsInterface.projectsArray.length);
   });
-
-hero.displayProjects(false);

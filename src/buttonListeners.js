@@ -15,6 +15,62 @@ export const buttonListeners = {
     });
   },
 
+  doRenameButton: function () {
+    const renameButton = document.querySelectorAll(".rename");
+
+    renameButton.forEach((button) => {
+      button.onclick = function () {
+        const renameModal = document.querySelector(".rename-modal");
+
+        buttonInterface.indexOfProject = button.getAttribute("data-num");
+
+        if (
+          renameModal.style.display === "" ||
+          renameModal.style.display === "none"
+        ) {
+          renameModal.style.display = "block";
+        }
+      };
+    });
+  },
+
+  doDeleteProjectButton: function () {
+    const deleteButton = document.querySelectorAll(".project-div > .delete");
+
+    deleteButton.forEach((button) => {
+      button.onclick = function () {
+        const indexOfProject = button.getAttribute("data-num");
+
+        objectsInterface.projectsArray.splice(indexOfProject, 1);
+
+        hero.displayProjects(true);
+
+        navBar.updateProjectsNum(objectsInterface.projectsArray.length);
+
+        buttonListeners.doRenameButton();
+        buttonListeners.doDeleteProjectButton();
+        buttonListeners.doCheckBox();
+      };
+    });
+  },
+
+  doCheckBox: function () {
+    const checkBox = document.querySelectorAll(".checkbox");
+
+    checkBox.forEach((checkBox) => {
+      checkBox.onclick = function () {
+        if (
+          checkBox.style.backgroundColor === "" ||
+          checkBox.style.backgroundColor === "rgb(255, 42, 42)"
+        ) {
+          checkBox.style.backgroundColor = "rgb(31, 171, 26)";
+        } else {
+          checkBox.style.backgroundColor = "rgb(255, 42, 42)";
+        }
+      };
+    });
+  },
+
   doRenameModalListeners: function () {
     const closeButton = renameModal.closeButton();
 
@@ -34,6 +90,9 @@ export const buttonListeners = {
       objectsInterface.changeName(project, newName);
 
       hero.displayProjects(true);
+      buttonListeners.doRenameButton();
+
+      renameModal.modalDiv.style.display = "none";
     });
   },
 };

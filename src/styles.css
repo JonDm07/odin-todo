@@ -97,10 +97,10 @@ header {
     border: 2px solid rgb(131, 131, 131);
 }
 
-.project-div > .checkbox-on {
-    background-color: rgb(31, 171, 26)
+.project-div > .checkbox {
+    background-color: rgb(255, 42, 42);
+    border: none;
 }
-
 
 footer {
     grid-row: -2 / -1;

@@ -2,10 +2,13 @@ import "./styles.css";
 import { navBar } from "./navbar";
 import { projectModal } from "./projectsModal";
 import { renameModal } from "./renameModal";
+import { buttonListeners } from "./buttonListeners";
 
 export const homepage = {
   makeHomepage: function (initialLoad) {
     createElement(initialLoad);
+    buttonListeners.doHomepageListeners();
+    buttonListeners.doRenameModalListeners();
   },
 };
 

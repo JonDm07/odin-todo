@@ -1,11 +1,16 @@
 import { buttonInterface } from "./buttonListeners";
 import { objectsInterface } from "./projects";
+import { buttonListeners } from "./buttonListeners";
 
 export const hero = {
+  numOfDisplayedProjects: function () {
+    const num = document.querySelectorAll(".project-div").length;
+    return num;
+  },
   removeDisplayedProjects: function () {
-    let numOfDisplayedProjects = document.querySelectorAll(".project-div");
+    let displayedProjects = document.querySelectorAll(".project-div");
 
-    numOfDisplayedProjects.forEach((el) => {
+    displayedProjects.forEach((el) => {
       el.remove();
     });
   },
@@ -18,6 +23,7 @@ export const hero = {
     }
 
     for (let i = 0; i < projectsArray.length; i++) {
+      let numOfDisplayedProjects = this.numOfDisplayedProjects();
       const projectDiv = document.createElement("div");
       projectDiv.classList.add("project-div");
       hero.appendChild(projectDiv);
@@ -39,38 +45,26 @@ export const hero = {
 
       const renameButton = document.createElement("button");
       renameButton.classList.add("rename");
-      renameButton.setAttribute(
-        "data-num",
-        objectsInterface.projectsArray.length - 1
-      );
+      renameButton.setAttribute("data-num", numOfDisplayedProjects);
       renameButton.textContent = "R";
       projectDiv.appendChild(renameButton);
 
-      renameButton.addEventListener("click", () => {
-        const renameModal = document.querySelector(".rename-modal");
-
-        buttonInterface.indexOfProject = renameButton.getAttribute("data-num");
-
-        console.log(buttonInterface.indexOfProject);
-
-        if (
-          renameModal.style.display === "" ||
-          renameModal.style.display === "none"
-        ) {
-          renameModal.style.display = "block";
-        }
-      });
-
       const deleteButton = document.createElement("button");
+
       deleteButton.classList.add("delete");
+      deleteButton.setAttribute("data-num", numOfDisplayedProjects);
       deleteButton.style.color = "red";
       deleteButton.textContent = "X";
       projectDiv.appendChild(deleteButton);
 
       const checkBox = document.createElement("button");
-      checkBox.classList.add("checkbox-off");
+
+      checkBox.classList.add("checkbox");
       projectDiv.appendChild(checkBox);
     }
+    buttonListeners.doRenameButton();
+    buttonListeners.doDeleteProjectButton();
+    buttonListeners.doCheckBox();
   },
   renameButton: function () {
     const buttons = document.querySelectorAll(".project-div > .rename ");
