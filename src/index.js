@@ -1,26 +1,14 @@
-import { homepage } from "./homepage";
-import { navBar } from "./navbar";
-import { createModal } from "./projectsModal";
-import { formValidation } from "./formValidation.js";
-import { hero } from "./hero.js";
-import { objectsInterface } from "./projects";
-import { renameModal } from "./renameModal";
-import { buttonListeners } from "./buttonListeners";
+import { homepage } from "./DOM/homepage";
+import { navBar } from "./DOM/navbar";
+import { createModal } from "./DOM/projectsModal";
+import { formValidation } from "./Functionality/formValidation.js";
+import { hero } from "./DOM/hero.js";
+import { objectsInterface } from "./Functionality/projects";
+import { renameModal } from "./DOM/renameModal";
+import { buttonListeners } from "./Functionality/buttonListeners";
 
 homepage.makeHomepage(true);
 
 hero.displayProjects(false);
 
-document
-  .querySelector(".nav-modal > form > button")
-  .addEventListener("click", (e) => {
-    e.preventDefault();
-
-    formValidation.submitForm();
-
-    navBar.displayModal();
-
-    hero.displayProjects(true);
-
-    navBar.updateProjectsNum(objectsInterface.projectsArray.length);
-  });
+console.log(objectsInterface.projectsArray);

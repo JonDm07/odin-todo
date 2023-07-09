@@ -1,7 +1,9 @@
-import { hero } from "./hero";
-import { navBar } from "./navbar";
+import { hero } from "../DOM/hero";
+import { navBar } from "../DOM/navbar";
 import { objectsInterface } from "./projects";
-import { renameModal } from "./renameModal";
+import { renameModal } from "../DOM/renameModal";
+import { formValidation } from "./formValidation";
+import { modals } from "./displayModals";
 
 export const buttonInterface = {
   indexOfProject: undefined,
@@ -11,7 +13,29 @@ export const buttonListeners = {
   doHomepageListeners: function () {
     const addProjectButton = navBar.addProjectButton();
     addProjectButton.addEventListener("click", () => {
-      navBar.displayModal();
+      const modal = document.querySelector(".nav-modal");
+      modals.displayModal(modal);
+      navBar.updateProjectButtonText();
+    });
+
+    const submitProjectButton = document.querySelector(
+      ".nav-modal > form > button"
+    );
+
+    const type = "project";
+
+    submitProjectButton.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const modal = document.querySelector(".nav-modal");
+
+      formValidation.submitForm(modal.className, type);
+
+      modals.displayModal(modal);
+      navBar.updateProjectButtonText();
+      navBar.updateProjectsNum(objectsInterface.projectsArray.length);
+
+      hero.displayProjects(true);
     });
   },
 
@@ -35,7 +59,9 @@ export const buttonListeners = {
   },
 
   doDeleteProjectButton: function () {
-    const deleteButton = document.querySelectorAll(".project-div > .delete");
+    const deleteButton = document.querySelectorAll(
+      ".project-div > div > .delete"
+    );
 
     deleteButton.forEach((button) => {
       button.onclick = function () {
@@ -50,6 +76,7 @@ export const buttonListeners = {
         buttonListeners.doRenameButton();
         buttonListeners.doDeleteProjectButton();
         buttonListeners.doCheckBox();
+        buttonListeners.doAddTaskButton();
       };
     });
   },
@@ -71,6 +98,20 @@ export const buttonListeners = {
     });
   },
 
+  doAddTaskButton: function () {
+    const addButtons = document.querySelectorAll(".add-task");
+
+    addButtons.forEach((button) => {
+      button.onclick = function () {
+        const modal = document.querySelector(".task-modal");
+
+        buttonInterface.indexOfProject = button.getAttribute("data-num");
+
+        modals.displayModal(modal);
+      };
+    });
+  },
+
   doRenameModalListeners: function () {
     const closeButton = renameModal.closeButton();
 
@@ -83,16 +124,44 @@ export const buttonListeners = {
     submitButton.addEventListener("click", (e) => {
       e.preventDefault();
 
-      const newName = document.querySelector("#project-rename").value;
+      const input = document.querySelector("#project-rename");
+
+      const newName = input.value;
       const project =
         objectsInterface.projectsArray[buttonInterface.indexOfProject];
 
       objectsInterface.changeName(project, newName);
+
+      if (
+        formValidation.checkIfEmpty(newName) === true ||
+        formValidation.checkSameName(objectsInterface.projectsArray, newName)
+      ) {
+        input.value = "";
+        input.style.border = "2px solid red";
+        input.setAttribute("placeholder", "Please enter valid name");
+        return;
+      }
 
       hero.displayProjects(true);
       buttonListeners.doRenameButton();
 
       renameModal.modalDiv.style.display = "none";
     });
+  },
+
+  doTaskModal: function () {
+    const button = document.querySelector(".task-modal > form > button");
+    const type = "task";
+
+    button.onclick = function (e) {
+      e.preventDefault();
+
+      const modal = document.querySelector(".task-modal");
+
+      formValidation.submitForm(modal.className, type);
+      console.log(
+        objectsInterface.projectsArray[buttonInterface.indexOfProject]
+      );
+    };
   },
 };

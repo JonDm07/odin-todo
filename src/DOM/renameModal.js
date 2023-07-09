@@ -1,4 +1,4 @@
-import { objectsInterface } from "./projects";
+import { objectsInterface } from "../Functionality/projects";
 
 export const renameModal = {
   modalDiv: undefined,

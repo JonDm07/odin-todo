@@ -9,6 +9,7 @@ export const objectsInterface = {
       name: "Hello World",
       priority: "1",
       type: "project",
+      tasks: [],
     },
   ],
   currentSelectedProject: undefined,

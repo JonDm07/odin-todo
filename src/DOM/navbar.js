@@ -1,4 +1,4 @@
-import { objectsInterface } from "./projects";
+import { objectsInterface } from "../Functionality/projects";
 
 export const navBar = {
   numOfProjects: objectsInterface.projectsArray.length,
@@ -31,17 +31,11 @@ export const navBar = {
     const span = document.querySelector(".nav-bar > ul > span");
     span.textContent = `Projects: ${num}`;
   },
-
-  displayModal: function () {
-    const modal = document.querySelector(".nav-modal");
-    const projectBtn = this.addProjectButton();
-
-    if (modal.style.display === "block") {
-      modal.style.display = "";
-      projectBtn.textContent = "Add Project";
-    } else if (modal.style.display === "") {
-      modal.style.display = "block";
-      projectBtn.textContent = "Cancel";
+  updateProjectButtonText: function () {
+    if (navBar.addProjectButton().textContent === "Add Project") {
+      navBar.addProjectButton().textContent = "Cancel";
+    } else if (navBar.addProjectButton().textContent === "Cancel") {
+      navBar.addProjectButton().textContent = "Add Project";
     }
   },
 };
