@@ -5,14 +5,14 @@ export function createProject(type) {
 export const objectsInterface = {
   projectsArray: [
     {
-      description: "",
-      name: "Hello World",
-      priority: "1",
       type: "project",
       tasks: [],
+      name: "Hello World",
+      priority: "1",
+      description: "",
     },
   ],
-  currentSelectedProject: undefined,
+  /*   currentSelectedProject: undefined, */
   changeName: function (object, name) {
     object.name = name;
   },

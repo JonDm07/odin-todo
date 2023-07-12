@@ -4,9 +4,11 @@ import { objectsInterface } from "./projects";
 import { renameModal } from "../DOM/renameModal";
 import { formValidation } from "./formValidation";
 import { modals } from "./displayModals";
+import { taskDiv } from "../DOM/taskDiv";
+import { projectModal } from "../DOM/projectsModal";
 
 export const buttonInterface = {
-  indexOfProject: undefined,
+  indexOfProject: 0,
 };
 
 export const buttonListeners = {
@@ -29,13 +31,13 @@ export const buttonListeners = {
 
       const modal = document.querySelector(".nav-modal");
 
-      formValidation.submitForm(modal.className, type);
+      formValidation.submitForm(modal, type);
 
-      modals.displayModal(modal);
       navBar.updateProjectButtonText();
       navBar.updateProjectsNum(objectsInterface.projectsArray.length);
 
       hero.displayProjects(true);
+      modals.displayModal(modal);
     });
   },
 
@@ -59,9 +61,7 @@ export const buttonListeners = {
   },
 
   doDeleteProjectButton: function () {
-    const deleteButton = document.querySelectorAll(
-      ".project-div > div > .delete"
-    );
+    const deleteButton = document.querySelectorAll(".delete");
 
     deleteButton.forEach((button) => {
       button.onclick = function () {
@@ -130,8 +130,6 @@ export const buttonListeners = {
       const project =
         objectsInterface.projectsArray[buttonInterface.indexOfProject];
 
-      objectsInterface.changeName(project, newName);
-
       if (
         formValidation.checkIfEmpty(newName) === true ||
         formValidation.checkSameName(objectsInterface.projectsArray, newName)
@@ -141,6 +139,8 @@ export const buttonListeners = {
         input.setAttribute("placeholder", "Please enter valid name");
         return;
       }
+
+      objectsInterface.changeName(project, newName);
 
       hero.displayProjects(true);
       buttonListeners.doRenameButton();
@@ -158,8 +158,9 @@ export const buttonListeners = {
 
       const modal = document.querySelector(".task-modal");
 
-      formValidation.submitForm(modal.className, type);
-      console.log(
+      formValidation.submitForm(modal, type);
+
+      taskDiv.displayTasks(
         objectsInterface.projectsArray[buttonInterface.indexOfProject]
       );
     };

@@ -1,5 +1,6 @@
 import { buttonInterface } from "./buttonListeners";
 import { objectsInterface, createProject } from "./projects";
+import { modals } from "./displayModals";
 
 export const formValidation = {
   checkIfEmpty: function (value) {
@@ -26,11 +27,13 @@ export const formValidation = {
 
   submitForm: function (modal, type) {
     let name = document.querySelector(
-      `.${modal} > form > label > input[type="text"]`
+      `.${modal.className} > form > label > input[type="text"]`
     );
-    let priority = document.querySelector(`.${modal} >form > label > select`);
+    let priority = document.querySelector(
+      `.${modal.className} >form > label > select`
+    );
     let description = document.querySelector(
-      `.${modal} > form > label > textarea`
+      `.${modal.className} > form > label > textarea`
     );
 
     if (formValidation.checkIfEmpty(name.value) === true) {
@@ -54,6 +57,7 @@ export const formValidation = {
 
       let project = createProject("project");
       project.type = type;
+      project.tasks = [];
       objectsInterface.changeName(project, name.value);
       objectsInterface.changePriority(project, priority.value);
       objectsInterface.changeDescription(project, description.value);
@@ -62,11 +66,15 @@ export const formValidation = {
 
       console.log(objectsInterface.projectsArray);
     } else if (type === "task") {
-      const project =
+      let project =
         objectsInterface.projectsArray[buttonInterface.indexOfProject];
 
+      console.log(project);
+
       if (formValidation.checkSameName(project.tasks, name.value) === true) {
-        name.classList.add("invalid");
+        name.value = "";
+        name.style.border = "2px solid red";
+        name.setAttribute("placeholder", "Please enter valid name");
         return true;
       }
 
@@ -77,6 +85,8 @@ export const formValidation = {
       objectsInterface.changeDescription(task, description.value);
 
       project.tasks.push(task);
+
+      modals.displayModal(modal);
     }
   },
 };
