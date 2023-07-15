@@ -1,19 +1,21 @@
-import { buttonInterface } from "./buttonListeners";
+import { buttonInterface } from "./ButtonListeners/buttonListeners";
 import { objectsInterface, createProject } from "./projects";
-import { modals } from "./displayModals";
+import { modals } from "./Modals";
 
 export const formValidation = {
-  checkIfEmpty: function (value) {
-    if (value === "") {
-      console.log("name field empty");
-      return true;
+  checkIfEmpty: function (input) {
+    if (input === "") {
+      console.log("empty");
+      return 400;
+    } else {
+      return false;
     }
   },
-  checkSameName: function (array, value) {
+  checkSameName: function (array, input) {
     let takenArray = [];
 
     array.forEach((element) => {
-      if (element.name === value) {
+      if (element.name === input) {
         takenArray.push(true);
       }
     });
@@ -21,7 +23,8 @@ export const formValidation = {
     if (takenArray.length === 0) {
       return false;
     } else {
-      return true;
+      console.log("name taken");
+      return 401;
     }
   },
 
@@ -36,57 +39,39 @@ export const formValidation = {
       `.${modal.className} > form > label > textarea`
     );
 
-    if (formValidation.checkIfEmpty(name.value) === true) {
-      name.classList.add("invalid");
-      console.log("name taken");
+    if (formValidation.checkIfEmpty(name.value) === 400) {
+      modals.changeInputError(name, 400);
       return true;
     }
+
+    let project = createProject(type);
+    project.tasks = [];
+    objectsInterface.changeName(project, name.value);
+    objectsInterface.changePriority(project, priority.value);
+    objectsInterface.changeDescription(project, description.value);
 
     if (type === "project") {
       if (
         formValidation.checkSameName(
           objectsInterface.projectsArray,
           name.value
-        ) === true
+        ) === 401
       ) {
-        name.classList.add("invalid");
+        modals.changeInputError(name, 401);
         return true;
       }
-
-      name.classList.remove("invalid");
-
-      let project = createProject("project");
-      project.type = type;
-      project.tasks = [];
-      objectsInterface.changeName(project, name.value);
-      objectsInterface.changePriority(project, priority.value);
-      objectsInterface.changeDescription(project, description.value);
-
       objectsInterface.projectsArray.push(project);
-
-      console.log(objectsInterface.projectsArray);
     } else if (type === "task") {
       let project =
         objectsInterface.projectsArray[buttonInterface.indexOfProject];
 
-      console.log(project);
-
-      if (formValidation.checkSameName(project.tasks, name.value) === true) {
-        name.value = "";
-        name.style.border = "2px solid red";
-        name.setAttribute("placeholder", "Please enter valid name");
+      if (formValidation.checkSameName(project.tasks, name.value) === 401) {
+        modals.changeInputError(name, 401);
         return true;
       }
-
-      let task = createProject("task");
-      task.type = type;
-      objectsInterface.changeName(task, name.value);
-      objectsInterface.changePriority(task, priority.value);
-      objectsInterface.changeDescription(task, description.value);
-
-      project.tasks.push(task);
-
-      modals.displayModal(modal);
+      project.tasks.push(project);
     }
+    modals.changeInputError(name, false);
+    name.value = "";
   },
 };

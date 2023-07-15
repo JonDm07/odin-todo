@@ -73,6 +73,11 @@ header {
     box-sizing: border-box;
 }
 
+input {
+    border-style: none;
+    border: 1px solid rgb(131, 131, 131);
+}
+
 form > label > textarea {
     resize: none;
         width: 274px;

@@ -1,6 +1,6 @@
-import { buttonInterface } from "../Functionality/buttonListeners";
+import { buttonInterface } from "../Functionality/ButtonListeners/buttonListeners";
 import { objectsInterface } from "../Functionality/projects";
-import { buttonListeners } from "../Functionality/buttonListeners";
+import { buttonListeners } from "../Functionality/ButtonListeners/buttonListeners";
 import { taskDiv } from "./taskDiv";
 
 export const hero = {

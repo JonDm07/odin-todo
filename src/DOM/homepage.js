@@ -2,15 +2,17 @@ import "../styles.css";
 import { navBar } from "./navbar";
 import { projectModal } from "./projectsModal";
 import { renameModal } from "./renameModal";
-import { buttonListeners } from "../Functionality/buttonListeners";
+import { buttonListeners } from "../Functionality/ButtonListeners/buttonListeners";
+import { modalListeners } from "../Functionality/ButtonListeners/modalListeners";
 import { taskModal } from "./taskModal";
 
 export const homepage = {
   makeHomepage: function (initialLoad) {
     createElement(initialLoad);
     buttonListeners.doHomepageListeners();
-    buttonListeners.doRenameModalListeners();
-    buttonListeners.doTaskModal();
+    modalListeners.doRenameModalListeners();
+    modalListeners.doTaskModalSubmit();
+    modalListeners.doProjectModal();
   },
 };
 

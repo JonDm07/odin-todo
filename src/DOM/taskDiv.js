@@ -1,4 +1,4 @@
-import { buttonInterface } from "../Functionality/buttonListeners";
+import { buttonInterface } from "../Functionality/ButtonListeners/buttonListeners";
 import { objectsInterface } from "../Functionality/projects";
 
 export const taskDiv = {

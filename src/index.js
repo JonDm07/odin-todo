@@ -8,15 +8,11 @@ import { renameModal } from "./DOM/renameModal";
 import {
   buttonListeners,
   buttonInterface,
-} from "./Functionality/buttonListeners";
+} from "./Functionality/ButtonListeners/buttonListeners";
 homepage.makeHomepage(true);
 
 hero.displayProjects(false);
 
 let project = objectsInterface.projectsArray[buttonInterface.indexOfProject];
 
-console.log(project);
-
-console.log(
-  objectsInterface.getIndexOfProject(objectsInterface.projectsArray[0].name)
-);
+/* alert("input error is bugged"); */
