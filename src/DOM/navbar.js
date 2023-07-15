@@ -20,11 +20,14 @@ export const navBar = {
     navBarDiv.appendChild(projectBtn);
 
     const list = document.createElement("ul");
+    list.classList.add("project-list");
     navBarDiv.appendChild(list);
 
     const span = document.createElement("span");
     list.appendChild(span);
     span.textContent = `Projects: ${numOfProjects}`;
+
+    navBar.updateProjectList(list);
   },
 
   updateProjectsNum: function (num) {
@@ -36,6 +39,20 @@ export const navBar = {
       navBar.addProjectButton().textContent = "Cancel";
     } else if (navBar.addProjectButton().textContent === "Cancel") {
       navBar.addProjectButton().textContent = "Add Project";
+    }
+  },
+  updateProjectList: function () {
+    const list = document.querySelector(".project-list");
+    const displayedProjects = document.querySelectorAll(".project-list > li");
+
+    displayedProjects.forEach((element) => {
+      element.remove();
+    });
+
+    for (let i = 0; i < objectsInterface.projectsArray.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = objectsInterface.projectsArray[i].name;
+      list.appendChild(li);
     }
   },
 };

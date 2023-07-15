@@ -12,7 +12,3 @@ import {
 homepage.makeHomepage(true);
 
 hero.displayProjects(false);
-
-let project = objectsInterface.projectsArray[buttonInterface.indexOfProject];
-
-/* alert("input error is bugged"); */

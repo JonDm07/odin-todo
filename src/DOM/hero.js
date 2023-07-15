@@ -2,6 +2,7 @@ import { buttonInterface } from "../Functionality/ButtonListeners/buttonListener
 import { objectsInterface } from "../Functionality/projects";
 import { buttonListeners } from "../Functionality/ButtonListeners/buttonListeners";
 import { taskDiv } from "./taskDiv";
+import { objectDivs } from "../Functionality/ButtonListeners/objectDivsListeners";
 
 export const hero = {
   numOfDisplayedProjects: function () {
@@ -37,10 +38,10 @@ export const hero = {
       doText(projectDiv, projectsArray, i);
       doButtons(projectDiv, numOfDisplayedProjects);
     }
-    buttonListeners.doRenameButton();
-    buttonListeners.doDeleteProjectButton();
-    buttonListeners.doCheckBox();
-    buttonListeners.doAddTaskButton();
+    objectDivs.doRenameButton();
+    objectDivs.doDeleteProjectButton();
+    objectDivs.doCheckBox();
+    objectDivs.doAddTaskButton();
 
     projectsArray.forEach((project) => {
       taskDiv.displayTasks(project);

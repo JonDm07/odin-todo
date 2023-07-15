@@ -6,6 +6,7 @@ import { objectsInterface } from "../projects";
 import { buttonInterface, buttonListeners } from "./buttonListeners";
 import { hero } from "../../DOM/hero";
 import { navBar } from "../../DOM/navbar";
+import { objectDivs } from "./objectDivsListeners";
 
 export const modalListeners = {
   doRenameModalListeners: function () {
@@ -40,8 +41,10 @@ export const modalListeners = {
       }
       objectsInterface.changeName(project, newName.value);
 
+      navBar.updateProjectList();
+
       hero.displayProjects(true);
-      buttonListeners.doRenameButton();
+      objectDivs.doRenameButton();
 
       modals.displayModal(renameModal.modalDiv);
       modals.changeInputError(newName, false);
@@ -57,11 +60,15 @@ export const modalListeners = {
 
       const modal = document.querySelector(".task-modal");
 
-      formValidation.submitForm(modal, type);
+      if (formValidation.submitForm(modal, type) === true) {
+        return;
+      } else {
+        taskDiv.displayTasks(
+          objectsInterface.projectsArray[buttonInterface.indexOfProject]
+        );
 
-      taskDiv.displayTasks(
-        objectsInterface.projectsArray[buttonInterface.indexOfProject]
-      );
+        modals.displayModal(modal);
+      }
     };
   },
   doProjectModal: function () {
@@ -78,6 +85,7 @@ export const modalListeners = {
       } else {
         modals.displayModal(modal);
 
+        navBar.updateProjectList();
         navBar.updateProjectButtonText();
         navBar.updateProjectsNum(objectsInterface.projectsArray.length);
 

@@ -44,11 +44,11 @@ export const formValidation = {
       return true;
     }
 
-    let project = createProject(type);
-    project.tasks = [];
-    objectsInterface.changeName(project, name.value);
-    objectsInterface.changePriority(project, priority.value);
-    objectsInterface.changeDescription(project, description.value);
+    let object = createProject(type);
+    object.tasks = [];
+    objectsInterface.changeName(object, name.value);
+    objectsInterface.changePriority(object, priority.value);
+    objectsInterface.changeDescription(object, description.value);
 
     if (type === "project") {
       if (
@@ -60,7 +60,7 @@ export const formValidation = {
         modals.changeInputError(name, 401);
         return true;
       }
-      objectsInterface.projectsArray.push(project);
+      objectsInterface.projectsArray.push(object);
     } else if (type === "task") {
       let project =
         objectsInterface.projectsArray[buttonInterface.indexOfProject];
@@ -69,7 +69,7 @@ export const formValidation = {
         modals.changeInputError(name, 401);
         return true;
       }
-      project.tasks.push(project);
+      project.tasks.push(object);
     }
     modals.changeInputError(name, false);
     name.value = "";
