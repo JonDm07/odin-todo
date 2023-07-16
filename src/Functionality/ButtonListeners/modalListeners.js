@@ -1,10 +1,9 @@
 import { renameModal } from "../../DOM/renameModal";
 import { modals } from "../Modals";
 import { formValidation } from "../formValidation";
-import { taskDiv } from "../../DOM/taskDiv";
 import { objectsInterface } from "../projects";
 import { buttonInterface, buttonListeners } from "./buttonListeners";
-import { hero } from "../../DOM/hero";
+import { hero, projectDiv, taskDiv } from "../../DOM/hero";
 import { navBar } from "../../DOM/navbar";
 import { objectDivs } from "./objectDivsListeners";
 

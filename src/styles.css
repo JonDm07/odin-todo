@@ -108,12 +108,16 @@ form > label > textarea {
     grid-auto-rows: 1fr;
 
 }
-.project-div > div {
+.project-div > div,
+.task-div > div {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     border: 1px black dashed;
+    gap: 10px;
+}
+
+.project-div > div {
     grid-column: span 2;
 }
 
@@ -136,7 +140,8 @@ form > label > textarea {
     border: 1px solid red;
 }
 
-.project-div > div > button {
+.project-div > div > button,
+.task-div > div > button {
     height: 30px;
     width: 30px;
 
@@ -144,11 +149,13 @@ form > label > textarea {
     border: 1px dashed black;
 }
 
-.project-div > div > button:hover {
+.project-div > div > button:hover,
+.task-div > div > button:hover {
     border: 2px solid rgb(131, 131, 131);
 }
 
-.project-div > div > .checkbox {
+.project-div > div > .checkbox,
+.task-div > div > .checkbox {
     background-color: rgb(255, 42, 42);
     border: none;
 }

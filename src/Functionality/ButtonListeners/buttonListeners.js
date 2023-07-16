@@ -4,7 +4,6 @@ import { objectsInterface } from "../projects";
 import { renameModal } from "../../DOM/renameModal";
 import { formValidation } from "../formValidation";
 import { modals } from "../Modals";
-import { taskDiv } from "../../DOM/taskDiv";
 import { projectModal } from "../../DOM/projectsModal";
 
 export const buttonInterface = {

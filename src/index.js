@@ -2,7 +2,7 @@ import { homepage } from "./DOM/homepage";
 import { navBar } from "./DOM/navbar";
 import { createModal } from "./DOM/projectsModal";
 import { formValidation } from "./Functionality/formValidation.js";
-import { hero } from "./DOM/hero.js";
+import { hero, projectDiv, taskDiv } from "./DOM/hero.js";
 import { objectsInterface } from "./Functionality/projects";
 import { renameModal } from "./DOM/renameModal";
 import {
@@ -11,4 +11,4 @@ import {
 } from "./Functionality/ButtonListeners/buttonListeners";
 homepage.makeHomepage(true);
 
-hero.displayProjects(false);
+projectDiv.displayProjects(false);

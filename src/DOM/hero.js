@@ -1,7 +1,6 @@
 import { buttonInterface } from "../Functionality/ButtonListeners/buttonListeners";
 import { objectsInterface } from "../Functionality/projects";
 import { buttonListeners } from "../Functionality/ButtonListeners/buttonListeners";
-import { taskDiv } from "./taskDiv";
 import { objectDivs } from "../Functionality/ButtonListeners/objectDivsListeners";
 
 export const hero = {
@@ -20,20 +19,27 @@ export const hero = {
     if (projectDiv) {
     }
   },
+  renameButton: function () {
+    const buttons = document.querySelectorAll(".project-div > .rename ");
+    return buttons;
+  },
+};
+
+export const projectDiv = {
   displayProjects: function (removeDisplayedProjects) {
     const projectsArray = objectsInterface.projectsArray;
-    const hero = document.querySelector(".hero");
+    const heroDiv = document.querySelector(".hero");
 
     if (removeDisplayedProjects) {
-      this.removeDisplayedProjects();
+      hero.removeDisplayedProjects();
     }
 
     for (let i = 0; i < projectsArray.length; i++) {
-      let numOfDisplayedProjects = this.numOfDisplayedProjects();
+      let numOfDisplayedProjects = hero.numOfDisplayedProjects();
       const projectDiv = document.createElement("div");
       projectDiv.classList.add("project-div");
       projectDiv.setAttribute("data-num", i);
-      hero.appendChild(projectDiv);
+      heroDiv.appendChild(projectDiv);
 
       doText(projectDiv, projectsArray, i);
       doButtons(projectDiv, numOfDisplayedProjects);
@@ -47,9 +53,34 @@ export const hero = {
       taskDiv.displayTasks(project);
     });
   },
-  renameButton: function () {
-    const buttons = document.querySelectorAll(".project-div > .rename ");
-    return buttons;
+};
+
+export const taskDiv = {
+  displayTasks: function (project) {
+    const indexOfProject = objectsInterface.getIndexOfProject(project.name);
+
+    const projectDiv = document.querySelector(
+      `.project-div:nth-of-type(${indexOfProject + 1})`
+    );
+
+    const numOfDisplayedtasks = document.querySelectorAll(
+      `.project-div:nth-of-type(${indexOfProject + 1}) > .task-div`
+    );
+
+    if (numOfDisplayedtasks.length > 0) {
+      numOfDisplayedtasks.forEach((element) => {
+        element.remove();
+      });
+    }
+
+    for (let i = 0; i < project.tasks.length; i++) {
+      const taskDiv = document.createElement("div");
+      taskDiv.classList.add("task-div");
+      projectDiv.appendChild(taskDiv);
+
+      doText(taskDiv, project.tasks, i);
+      doButtons(taskDiv, i);
+    }
   },
 };
 
@@ -58,11 +89,13 @@ function doButtons(projectDiv, numOfDisplayedProjects) {
   buttonDiv.classList.add("button-div");
   projectDiv.appendChild(buttonDiv);
 
-  const addTaskButton = document.createElement("button");
-  addTaskButton.classList.add("add-task");
-  addTaskButton.setAttribute("data-num", numOfDisplayedProjects);
-  addTaskButton.textContent = "+";
-  buttonDiv.appendChild(addTaskButton);
+  if (projectDiv.className === "project-div") {
+    const addTaskButton = document.createElement("button");
+    addTaskButton.classList.add("add-task");
+    addTaskButton.setAttribute("data-num", numOfDisplayedProjects);
+    addTaskButton.textContent = "+";
+    buttonDiv.appendChild(addTaskButton);
+  }
 
   const renameButton = document.createElement("button");
   renameButton.classList.add("rename");
