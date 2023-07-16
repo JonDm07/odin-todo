@@ -43,6 +43,7 @@ module.exports = {
     ],
   },
   optimization: {
+    usedExports: true,
     runtimeChunk: "single",
   },
 };
