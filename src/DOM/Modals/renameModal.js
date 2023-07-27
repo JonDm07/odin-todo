@@ -1,8 +1,4 @@
-import { objectsInterface } from "../Functionality/projects";
-
 export const renameModal = {
-  modalDiv: undefined,
-
   createModal: function () {
     const body = document.querySelector("body");
     const modalDiv = document.createElement("div");
@@ -36,16 +32,8 @@ export const renameModal = {
 
     form.appendChild(closeButton);
 
-    renameModal.modalDiv = document.querySelector(".rename-modal");
-  },
-
-  closeButton: function () {
-    const button = document.querySelector(".rename-close");
-    return button;
-  },
-
-  submitButton: function () {
-    const button = document.querySelector(".rename-submit");
-    return button;
+    renameModal.modalDiv = modalDiv;
+    renameModal.closeButton = closeButton;
+    renameModal.submitButton = submitBtn;
   },
 };

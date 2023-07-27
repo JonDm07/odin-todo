@@ -1,18 +1,28 @@
-export function createProject(type) {
-  return { type };
-}
-
 export const objectsInterface = {
   projectsArray: [
     {
       type: "project",
-      tasks: [],
+      tasks: [
+        {
+          type: "task",
+          name: "Hello World",
+          priority: "1",
+          description: "First project",
+          status: undefined,
+        },
+      ],
       name: "Hello World",
       priority: "1",
       description: "",
       status: undefined,
     },
   ],
+
+  indexOfProject: 0,
+
+  createProject: function (type) {
+    return { type };
+  },
   changeName: function (object, name) {
     object.name = name;
   },
