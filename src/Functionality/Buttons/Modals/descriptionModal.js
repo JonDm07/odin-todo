@@ -1,5 +1,7 @@
+import { heroInterface } from "../../../DOM/hero";
 import { descriptionModal } from "../../../DOM/Modals/descriptionModal";
 import { modalsInterface } from "../../../DOM/Modals/modalsInteface";
+import { objectsInterface } from "../../projects";
 
 export const descriptionModalButtons = {
   closeButton: function () {
@@ -13,7 +15,18 @@ export const descriptionModalButtons = {
     descriptionModal.submitButton.onclick = function (e) {
       e.preventDefault();
 
-      console.log("Hello");
+      const project =
+        objectsInterface.projectsArray[objectsInterface.indexOfProject];
+
+      const description = document.querySelector(
+        ".description-modal > form > label > textarea"
+      ).value;
+
+      objectsInterface.changeDescription(project, description);
+
+      modalsInterface.displayModal(descriptionModal.div);
+
+      heroInterface.displayProjects(true);
     };
   },
 };

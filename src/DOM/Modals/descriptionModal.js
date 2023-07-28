@@ -1,4 +1,4 @@
-import { descriptionModalButtons } from "../../Functionality/Buttons/Modals/descriptionModall";
+import { descriptionModalButtons } from "../../Functionality/Buttons/Modals/descriptionModal";
 
 export const descriptionModal = {
   createModal: function () {

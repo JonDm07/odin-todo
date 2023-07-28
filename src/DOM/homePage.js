@@ -1,4 +1,4 @@
-import { projectButtons } from "../Functionality/Buttons/projectHomepage";
+import { projectButtons } from "../Functionality/Buttons/projects";
 import "../styles.css";
 import { heroInterface } from "./hero";
 import { descriptionModal } from "./Modals/descriptionModal";

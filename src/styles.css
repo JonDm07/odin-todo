@@ -41,6 +41,8 @@ header {
     justify-self: center;
     align-self: center;
     
+    display: none;
+
     background-color: white;
     border: 1px black solid;
     border-radius: 10px;
@@ -78,13 +80,11 @@ form > label > textarea {
 }
 
 .rename-modal {
-    display: none;
     height: 100px;
     width: 300px;
 }
 
 .nav-modal {
-    display: none;
     height: 400px;
     width: 300px;
     border-radius: 10px;

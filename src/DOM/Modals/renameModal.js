@@ -1,3 +1,5 @@
+import { renameModalButtons } from "../../Functionality/Buttons/Modals/renameModal";
+
 export const renameModal = {
   createModal: function () {
     const body = document.querySelector("body");
@@ -33,7 +35,14 @@ export const renameModal = {
     form.appendChild(closeButton);
 
     renameModal.div = modalDiv;
+    renameModal.nameInput = input;
     renameModal.closeButton = closeButton;
     renameModal.submitButton = submitBtn;
+
+    this.addListenersToModal();
+  },
+  addListenersToModal: function () {
+    renameModalButtons.closeButton();
+    renameModalButtons.submitButton();
   },
 };
