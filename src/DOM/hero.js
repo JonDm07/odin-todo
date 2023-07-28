@@ -53,12 +53,6 @@ export const heroInterface = {
       buttonDiv.classList.add("button-div");
       projectDiv.appendChild(buttonDiv);
 
-      const addTaskButton = document.createElement("button");
-      addTaskButton.classList.add("add-task");
-      addTaskButton.setAttribute("data-num", numOfDisplayedProjects);
-      addTaskButton.textContent = "+";
-      buttonDiv.appendChild(addTaskButton);
-
       const renameButton = document.createElement("button");
       renameButton.classList.add("rename");
       renameButton.setAttribute("data-num", numOfDisplayedProjects);

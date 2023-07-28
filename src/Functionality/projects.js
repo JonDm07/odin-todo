@@ -61,4 +61,7 @@ export const objectsInterface = {
       }
     }
   },
+  removeProject: function (indexOfProject) {
+    objectsInterface.projectsArray.splice(indexOfProject, 1);
+  },
 };
