@@ -47,25 +47,6 @@ header {
     box-shadow: 4px 4px 5px 0px rgba(224,224,224,1);
 }
 
-.rename-modal {
-    display: none;
-    height: 100px;
-    width: 300px;
-}
-
-.nav-modal {
-    display: none;
-    height: 400px;
-    width: 300px;
-    border-radius: 10px;
-    z-index: 1;  
-}
-
-.description-modal {
-    height: 300px;
-    width: 300px;
-}
-
 .nav-modal > form,
 .rename-modal > form,
 .description-modal > form {
@@ -94,6 +75,31 @@ form > label > textarea {
     resize: none;
         width: 274px;
         height: 75px;
+}
+
+.rename-modal {
+    display: none;
+    height: 100px;
+    width: 300px;
+}
+
+.nav-modal {
+    display: none;
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    z-index: 1;  
+}
+
+.description-modal {
+    height: 300px;
+    width: 300px;
+}
+
+.description-modal > form > .close {
+    width: 30px;
+    height: 30px;
+    margin-left: 90%
 }
 
 /* end of modals,

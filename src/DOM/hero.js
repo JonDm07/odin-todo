@@ -66,7 +66,8 @@ export const heroInterface = {
       buttonDiv.appendChild(renameButton);
 
       const descriptionButton = document.createElement("button");
-      descriptionButton.classList.add(".description");
+      descriptionButton.classList.add("description");
+      descriptionButton.setAttribute("data-num", numOfDisplayedProjects);
       descriptionButton.textContent = "D";
       buttonDiv.appendChild(descriptionButton);
 

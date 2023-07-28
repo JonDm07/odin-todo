@@ -1,4 +1,4 @@
-import { renameButtons } from "../Functionality/Buttons/projectHomepage";
+import { projectButtons } from "../Functionality/Buttons/projectHomepage";
 import "../styles.css";
 import { heroInterface } from "./hero";
 import { descriptionModal } from "./Modals/descriptionModal";
@@ -9,10 +9,11 @@ export const homepage = {
   makeHomepage: function () {
     this.createElement();
     heroInterface.displayProjects(false);
-    renameModal.createModal();
-    renameButtons.addButtonsFunction();
 
+    renameModal.createModal();
     descriptionModal.createModal();
+
+    projectButtons.addAllButtons();
   },
   createElement: function () {
     const body = document.querySelector("body");

@@ -1,3 +1,5 @@
+import { descriptionModalButtons } from "../../Functionality/Buttons/Modals/descriptionModall";
+
 export const descriptionModal = {
   createModal: function () {
     const body = document.querySelector("body");
@@ -10,6 +12,7 @@ export const descriptionModal = {
 
     const closeButton = document.createElement("button");
     closeButton.classList.add("close");
+    closeButton.setAttribute("type", "button");
     closeButton.textContent = "X";
     form.appendChild(closeButton);
 
@@ -19,5 +22,21 @@ export const descriptionModal = {
 
     const textarea = document.createElement("textarea");
     label.appendChild(textarea);
+
+    const submitButton = document.createElement("button");
+    submitButton.setAttribute("type", "submit");
+    submitButton.classList.add("submit");
+    submitButton.textContent = "Submit";
+    form.appendChild(submitButton);
+
+    descriptionModal.div = modalDiv;
+    descriptionModal.closeButton = closeButton;
+    descriptionModal.submitButton = submitButton;
+
+    this.addListenersToModal();
+  },
+  addListenersToModal: function () {
+    descriptionModalButtons.closeButton();
+    descriptionModalButtons.submitButton();
   },
 };

@@ -1,8 +1,13 @@
 export const modalsInterface = {
   displayModal: function (modal) {
-    if (modal.style.display === "block") {
+    const computedStyle = getComputedStyle(modal);
+
+    if (computedStyle.display === "block" || computedStyle.display === "flex") {
       modal.style.display = "none";
-    } else if (modal.style.display === "" || modal.style.display === "none") {
+    } else if (
+      computedStyle.display === "" ||
+      computedStyle.display === "none"
+    ) {
       modal.style.display = "block";
     }
   },

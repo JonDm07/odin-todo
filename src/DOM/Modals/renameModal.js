@@ -32,7 +32,7 @@ export const renameModal = {
 
     form.appendChild(closeButton);
 
-    renameModal.modalDiv = modalDiv;
+    renameModal.div = modalDiv;
     renameModal.closeButton = closeButton;
     renameModal.submitButton = submitBtn;
   },
