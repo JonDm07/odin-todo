@@ -9,6 +9,7 @@ export const projectButtons = {
     this.renameButtons();
     this.descriptionButton();
     this.deleteButton();
+    this.checkboxButton();
   },
   renameButtons: function () {
     const renameButtonsArray = document.querySelectorAll(".rename");
@@ -42,6 +43,22 @@ export const projectButtons = {
         objectsInterface.removeProject(indexOfProject);
 
         heroInterface.displayProjects(true);
+      };
+    });
+  },
+  checkboxButton: function () {
+    const checkBox = document.querySelectorAll(".checkbox");
+
+    checkBox.forEach((checkBox) => {
+      checkBox.onclick = function () {
+        if (
+          checkBox.style.backgroundColor === "" ||
+          checkBox.style.backgroundColor === "rgb(255, 42, 42)"
+        ) {
+          checkBox.style.backgroundColor = "rgb(31, 171, 26)";
+        } else {
+          checkBox.style.backgroundColor = "rgb(255, 42, 42)";
+        }
       };
     });
   },

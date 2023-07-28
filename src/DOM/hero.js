@@ -1,4 +1,5 @@
 import { objectsInterface } from "../Functionality/projects";
+import { projectButtons } from "../Functionality/Buttons/projects";
 
 export const heroInterface = {
   numOfDisplayedProjects: function () {
@@ -76,6 +77,8 @@ export const heroInterface = {
 
       checkBox.classList.add("checkbox");
       buttonDiv.appendChild(checkBox);
+
+      projectButtons.addAllButtons();
     }
   },
 };

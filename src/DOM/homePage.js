@@ -12,8 +12,6 @@ export const homepage = {
 
     renameModal.createModal();
     descriptionModal.createModal();
-
-    projectButtons.addAllButtons();
   },
   createElement: function () {
     const body = document.querySelector("body");
