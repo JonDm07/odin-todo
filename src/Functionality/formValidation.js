@@ -1,7 +1,6 @@
 export const formValidation = {
   checkIfEmpty: function (input) {
     if (input === "") {
-      console.log("empty");
       return 400;
     } else {
       return false;

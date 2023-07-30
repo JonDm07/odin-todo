@@ -1,3 +1,6 @@
+import { projectModalButtons } from "../../Functionality/Buttons/Modals/projectModal";
+import { projectButtons } from "../../Functionality/Buttons/projects";
+
 export const projectModal = {
   createModal: function () {
     const body = document.querySelector("body");
@@ -14,11 +17,11 @@ export const projectModal = {
     label.textContent = "Name";
     form.appendChild(label);
 
-    const input = document.createElement("input");
-    input.setAttribute("type", "text");
-    input.setAttribute("id", `project-name`);
-    input.setAttribute("name", `project-name`);
-    label.appendChild(input);
+    const nameInput = document.createElement("input");
+    nameInput.setAttribute("type", "text");
+    nameInput.setAttribute("id", `project-name`);
+    nameInput.setAttribute("name", `project-name`);
+    label.appendChild(nameInput);
 
     const selectLabel = document.createElement("label");
     selectLabel.textContent = "Priority";
@@ -51,6 +54,14 @@ export const projectModal = {
     form.appendChild(submitBtn);
 
     projectModal.div = modalDiv;
+    projectModal.nameInput = nameInput;
+    projectModal.selectInput = selectInput;
     projectModal.submitButton = submitBtn;
+
+    this.addListeneresToModal();
+  },
+
+  addListeneresToModal: function () {
+    projectModalButtons.submitButton();
   },
 };

@@ -20,8 +20,8 @@ export const objectsInterface = {
 
   indexOfProject: 0,
 
-  createProject: function (type) {
-    return { type };
+  createProject: function (type, name) {
+    return { type, name };
   },
   changeName: function (object, name) {
     object.name = name;
