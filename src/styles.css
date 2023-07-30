@@ -34,7 +34,7 @@ header {
 
 /* modals */
 
-.nav-modal,
+.project-modal,
 .rename-modal,
 .description-modal{
     position: fixed;
@@ -49,7 +49,7 @@ header {
     box-shadow: 4px 4px 5px 0px rgba(224,224,224,1);
 }
 
-.nav-modal > form,
+.project-modal > form,
 .rename-modal > form,
 .description-modal > form {
     display: flex;
@@ -61,7 +61,7 @@ header {
     box-sizing: border-box;
 }
 
-.nav-modal > form > label,
+.project-modal > form > label,
 .rename-modal > form > label,
 .description-modal > form > label{
     display: flex;
@@ -84,7 +84,7 @@ form > label > textarea {
     width: 300px;
 }
 
-.nav-modal {
+.project-modal {
     height: 400px;
     width: 300px;
     border-radius: 10px;

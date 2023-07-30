@@ -1,7 +1,9 @@
+import { navBarButtons } from "../Functionality/Buttons/navBar";
 import { projectButtons } from "../Functionality/Buttons/projects";
 import "../styles.css";
 import { heroInterface } from "./hero";
 import { descriptionModal } from "./Modals/descriptionModal";
+import { projectModal } from "./Modals/projectModal";
 import { renameModal } from "./Modals/renameModal";
 import { navBar } from "./navBar";
 
@@ -12,6 +14,9 @@ export const homepage = {
 
     renameModal.createModal();
     descriptionModal.createModal();
+    projectModal.createModal();
+
+    navBarButtons.addAllButtons();
   },
   createElement: function () {
     const body = document.querySelector("body");
