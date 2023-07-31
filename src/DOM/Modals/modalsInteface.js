@@ -11,4 +11,13 @@ export const modalsInterface = {
       modal.style.display = "block";
     }
   },
+  clearInputs: function (modal) {
+    const inputsArray = document.querySelectorAll(
+      `.${modal.className} > form > label > *`
+    );
+
+    inputsArray.forEach((input) => {
+      input.value = "";
+    });
+  },
 };
