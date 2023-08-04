@@ -1,22 +1,33 @@
 import { navBarButtons } from "../Functionality/Buttons/navBar";
 import { projectButtons } from "../Functionality/Buttons/projects";
+import { objectsInterface } from "../Functionality/projects";
 import "../styles.css";
 import { heroInterface } from "./hero";
 import { descriptionModal } from "./Modals/descriptionModal";
 import { projectModal } from "./Modals/projectModal";
 import { renameModal } from "./Modals/renameModal";
-import { navBar } from "./navBar";
+import { navBar, navBarInterface } from "./navBar";
 
 export const homepage = {
   makeHomepage: function () {
     this.createElement();
-    heroInterface.displayProjects(false);
+    this.displayProjects(false);
 
     renameModal.createModal();
     descriptionModal.createModal();
     projectModal.createModal();
 
     navBarButtons.addAllButtons();
+  },
+  displayProjects: function (bool) {
+    heroInterface.createProjectsDiv(bool);
+
+    projectButtons.addAllButtons();
+
+    navBarInterface.updateProjectList();
+    navBarInterface.updateProjectsNum(objectsInterface.projectsArray.length);
+
+    navBarButtons.listProjectsButtons();
   },
   createElement: function () {
     const body = document.querySelector("body");

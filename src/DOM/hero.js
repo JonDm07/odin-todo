@@ -15,7 +15,7 @@ export const heroInterface = {
       el.remove();
     });
   },
-  displayProjects(removeDisplayedProjects) {
+  createProjectsDiv(removeDisplayedProjects) {
     const projectsArray = objectsInterface.projectsArray;
     const heroDiv = document.querySelector(".hero");
 
@@ -80,9 +80,5 @@ export const heroInterface = {
       checkBox.classList.add("checkbox");
       buttonDiv.appendChild(checkBox);
     }
-    projectButtons.addAllButtons();
-    navBarInterface.updateProjectList();
-    navBarInterface.updateProjectsNum(projectsArray.length);
-    navBarButtons.listProjectsButtons();
   },
 };

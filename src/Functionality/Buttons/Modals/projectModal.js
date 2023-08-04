@@ -1,4 +1,5 @@
 import { heroInterface } from "../../../DOM/hero";
+import { homepage } from "../../../DOM/homePage";
 import { modalsInterface } from "../../../DOM/Modals/modalsInteface";
 import { projectModal } from "../../../DOM/Modals/projectModal";
 import { formValidation } from "../../formValidation";
@@ -24,9 +25,10 @@ export const projectModalButtons = {
 
         objectsInterface.projectsArray.push(project);
 
-        heroInterface.displayProjects(true);
+        homepage.displayProjects(true);
 
         modalsInterface.displayModal(projectModal.div);
+        modalsInterface.clearInputs(projectModal.div);
       }
     };
   },

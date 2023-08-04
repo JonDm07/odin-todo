@@ -1,4 +1,5 @@
 import { heroInterface } from "../../DOM/hero";
+import { homepage } from "../../DOM/homePage";
 import { descriptionModal } from "../../DOM/Modals/descriptionModal";
 import { modalsInterface } from "../../DOM/Modals/modalsInteface";
 import { renameModal } from "../../DOM/Modals/renameModal";
@@ -42,7 +43,7 @@ export const projectButtons = {
 
         objectsInterface.removeProject(indexOfProject);
 
-        heroInterface.displayProjects(true);
+        homepage.displayProjects(true);
       };
     });
   },

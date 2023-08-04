@@ -1,4 +1,5 @@
 import { heroInterface } from "../../../DOM/hero";
+import { homepage } from "../../../DOM/homePage";
 import { descriptionModal } from "../../../DOM/Modals/descriptionModal";
 import { modalsInterface } from "../../../DOM/Modals/modalsInteface";
 import { objectsInterface } from "../../projects";
@@ -25,8 +26,9 @@ export const descriptionModalButtons = {
       objectsInterface.changeDescription(project, description);
 
       modalsInterface.displayModal(descriptionModal.div);
+      modalsInterface.clearInputs(descriptionModal.div);
 
-      heroInterface.displayProjects(true);
+      homepage.displayProjects(true);
     };
   },
 };

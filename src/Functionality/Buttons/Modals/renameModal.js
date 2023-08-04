@@ -1,4 +1,5 @@
 import { heroInterface } from "../../../DOM/hero";
+import { homepage } from "../../../DOM/homePage";
 import { modalsInterface } from "../../../DOM/Modals/modalsInteface";
 import { renameModal } from "../../../DOM/Modals/renameModal";
 import { objectsInterface } from "../../projects";
@@ -21,8 +22,9 @@ export const renameModalButtons = {
       objectsInterface.changeName(project, name);
 
       modalsInterface.displayModal(renameModal.div);
+      modalsInterface.clearInputs(renameModal.div);
 
-      heroInterface.displayProjects(true);
+      homepage.displayProjects(true);
     };
   },
 };
