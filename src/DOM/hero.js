@@ -19,8 +19,6 @@ export const heroInterface = {
     const projectsArray = objectsInterface.projectsArray;
     const heroDiv = document.querySelector(".hero");
 
-    heroInterface.div = heroDiv;
-
     if (removeHeroElements) {
       heroInterface.removeHeroElements();
     }
@@ -81,13 +79,38 @@ export const heroInterface = {
       buttonDiv.appendChild(checkBox);
     }
   },
+  createTaskDiv: function (task) {
+    const container = document.querySelector(".project-container");
+
+    const taskDiv = document.createElement("div");
+    taskDiv.classList.add("task-div");
+    container.appendChild(taskDiv);
+
+    const textDiv = document.createElement("div");
+    textDiv.classList.add("text-div");
+    taskDiv.appendChild(textDiv);
+
+    const name = document.createElement("p");
+    name.textContent = task.name;
+    textDiv.appendChild(name);
+  },
   displayProject: function (project) {
     this.removeHeroElements();
 
     const hero = this.div;
 
+    const container = document.createElement("div");
+    container.classList.add("project-container");
+    hero.appendChild(container);
+
     const h3 = document.createElement("h3");
     h3.textContent = `${project.name}`;
-    hero.appendChild(h3);
+    container.appendChild(h3);
+
+    if (project.tasks !== undefined) {
+      for (let i = 0; i < project.tasks.length; i++) {
+        this.createTaskDiv(project.tasks[i]);
+      }
+    }
   },
 };
