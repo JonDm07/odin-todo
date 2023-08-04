@@ -8,21 +8,21 @@ export const heroInterface = {
     const num = document.querySelectorAll(".project-div").length;
     return num;
   },
-  removeDisplayedProjects: function () {
-    let displayedProjects = document.querySelectorAll(".project-div");
+  removeHeroElements: function () {
+    let displayedProjects = document.querySelectorAll(".hero > *");
 
     displayedProjects.forEach((el) => {
       el.remove();
     });
   },
-  createProjectsDiv(removeDisplayedProjects) {
+  createProjectsDiv(removeHeroElements) {
     const projectsArray = objectsInterface.projectsArray;
     const heroDiv = document.querySelector(".hero");
 
     heroInterface.div = heroDiv;
 
-    if (removeDisplayedProjects) {
-      heroInterface.removeDisplayedProjects();
+    if (removeHeroElements) {
+      heroInterface.removeHeroElements();
     }
 
     for (let i = 0; i < projectsArray.length; i++) {
@@ -80,5 +80,14 @@ export const heroInterface = {
       checkBox.classList.add("checkbox");
       buttonDiv.appendChild(checkBox);
     }
+  },
+  displayProject: function (project) {
+    this.removeHeroElements();
+
+    const hero = this.div;
+
+    const h3 = document.createElement("h3");
+    h3.textContent = `${project.name}`;
+    hero.appendChild(h3);
   },
 };

@@ -11,7 +11,8 @@ import { navBar, navBarInterface } from "./navBar";
 export const homepage = {
   makeHomepage: function () {
     this.createElement();
-    this.displayProjects(false);
+    /*     this.displayProjects(false); */
+    heroInterface.displayProject(objectsInterface.projectsArray[0]);
 
     renameModal.createModal();
     descriptionModal.createModal();
@@ -47,5 +48,8 @@ export const homepage = {
 
     const footer = document.createElement("footer");
     body.appendChild(footer);
+
+    heroInterface.div = hero;
+    navBar.div = navBarDiv;
   },
 };

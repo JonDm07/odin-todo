@@ -1,6 +1,8 @@
+import { heroInterface } from "../../DOM/hero";
 import { modalsInterface } from "../../DOM/Modals/modalsInteface";
 import { projectModal } from "../../DOM/Modals/projectModal";
 import { navBar } from "../../DOM/navBar";
+import { objectsInterface } from "../projects";
 
 export const navBarButtons = {
   addAllButtons: function () {
@@ -17,7 +19,12 @@ export const navBarButtons = {
 
     buttons.forEach((button) => {
       button.onclick = function () {
-        console.log(button);
+        const projectIndex = objectsInterface.getIndexOfProject(
+          button.textContent
+        );
+        const project = objectsInterface.projectsArray[projectIndex];
+
+        heroInterface.displayProject(project);
       };
     });
   },
