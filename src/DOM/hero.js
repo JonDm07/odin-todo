@@ -1,5 +1,7 @@
 import { objectsInterface } from "../Functionality/projects";
 import { projectButtons } from "../Functionality/Buttons/projects";
+import { navBar, navBarInterface } from "./navBar";
+import { navBarButtons } from "../Functionality/Buttons/navBar";
 
 export const heroInterface = {
   numOfDisplayedProjects: function () {
@@ -77,8 +79,10 @@ export const heroInterface = {
 
       checkBox.classList.add("checkbox");
       buttonDiv.appendChild(checkBox);
-
-      projectButtons.addAllButtons();
     }
+    projectButtons.addAllButtons();
+    navBarInterface.updateProjectList();
+    navBarInterface.updateProjectsNum(projectsArray.length);
+    navBarButtons.listProjectsButtons();
   },
 };

@@ -22,8 +22,12 @@ export const navBarInterface = {
 
     for (let i = 0; i < objectsInterface.projectsArray.length; i++) {
       const li = document.createElement("li");
-      li.textContent = objectsInterface.projectsArray[i].name;
       list.appendChild(li);
+
+      const button = document.createElement("button");
+      button.classList.add("list-button");
+      button.textContent = objectsInterface.projectsArray[i].name;
+      li.appendChild(button);
     }
   },
 };
