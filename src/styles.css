@@ -77,6 +77,16 @@ header {
     min-width: 80px;
     background-color: var(--navbar-color);
     text-align: center;
+    color: white;
+}
+
+.nav-bar > *,
+.nav-bar > ul > li > button {
+    color: white;
+}
+
+.nav-bar > button {
+    color: black;
 }
 
 .nav-bar > ul {
@@ -169,10 +179,34 @@ form > label > textarea {
 
 .hero > .project-container {
     display: grid;
+    gap:  10px;
 }
 
 .project-container > * {
     border: solid black 1px;
+}
+
+.project-container h3,
+.project-container p {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+
+.project-container > h3 {
+    height: 70px;
+    font-size: 150%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-container > .task-div {
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
 
 .hero > .project-div {

@@ -50,7 +50,6 @@ export const navBar = {
 
     navBarInterface.updateProjectList();
 
-    navBar.div = navBarDiv;
     navBar.addProjectButton = projectBtn;
   },
 };
