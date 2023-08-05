@@ -192,8 +192,6 @@ form > label > textarea {
     padding-right: 5px;
 }
 
-
-
 .project-container > h3 {
     height: 70px;
     font-size: 150%;
@@ -207,6 +205,11 @@ form > label > textarea {
     height: 50px;
     display: flex;
     align-items: center;
+}
+
+.project-container .button-div {
+    display: flex;
+    gap: 5px;
 }
 
 .hero > .project-div {
@@ -244,7 +247,8 @@ form > label > textarea {
     border: 1px solid red;
 }
 
-.project-div > div > button{
+.project-div > div > button,
+.task-div button{
     height: 30px;
     width: 30px;
 
@@ -256,7 +260,8 @@ form > label > textarea {
     border: 2px solid rgb(131, 131, 131);
 }
 
-.project-div > div > .checkbox{
+.project-div > div > .checkbox,
+.task-div .checkbox{
     background-color: rgb(255, 42, 42);
     border: none;
 }

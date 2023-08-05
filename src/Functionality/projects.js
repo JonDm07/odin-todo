@@ -7,7 +7,7 @@ export const objectsInterface = {
           type: "task",
           name: "Hello World",
           priority: "1",
-          description: "First project",
+          description: "First task",
           status: undefined,
         },
       ],

@@ -74,7 +74,6 @@ export const heroInterface = {
       buttonDiv.appendChild(deleteButton);
 
       const checkBox = document.createElement("button");
-
       checkBox.classList.add("checkbox");
       buttonDiv.appendChild(checkBox);
     }
@@ -93,6 +92,25 @@ export const heroInterface = {
     const name = document.createElement("p");
     name.textContent = task.name;
     textDiv.appendChild(name);
+
+    const description = document.createElement("p");
+    description.textContent = task.description;
+    textDiv.appendChild(description);
+
+    const buttonDiv = document.createElement("div");
+    buttonDiv.classList.add("button-div");
+    taskDiv.appendChild(buttonDiv);
+
+    const checkBox = document.createElement("button");
+    checkBox.classList.add("checkbox");
+    buttonDiv.appendChild(checkBox);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete");
+    deleteButton.setAttribute("data-num", 0 /* numOfDisplayedProjects */);
+    deleteButton.style.color = "red";
+    deleteButton.textContent = "X";
+    buttonDiv.appendChild(deleteButton);
   },
   displayProject: function (project) {
     this.removeHeroElements();
