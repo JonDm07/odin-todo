@@ -8,6 +8,10 @@ export const heroInterface = {
     const num = document.querySelectorAll(".project-div").length;
     return num;
   },
+  numOfDisplayedTasks: function () {
+    const num = document.querySelectorAll(".task-div").length;
+    return num;
+  },
   removeHeroElements: function () {
     let displayedProjects = document.querySelectorAll(".hero > *");
 
@@ -79,27 +83,39 @@ export const heroInterface = {
     }
   },
   createTaskDiv: function (task) {
+    const numOfDisplayedTasks = heroInterface.numOfDisplayedTasks();
+
+    console.log(numOfDisplayedTasks);
+
     const container = document.querySelector(".project-container");
 
     const taskDiv = document.createElement("div");
     taskDiv.classList.add("task-div");
     container.appendChild(taskDiv);
 
-    const textDiv = document.createElement("div");
-    textDiv.classList.add("text-div");
-    taskDiv.appendChild(textDiv);
-
     const name = document.createElement("p");
     name.textContent = task.name;
-    textDiv.appendChild(name);
+    name.classList.add("name");
+    taskDiv.appendChild(name);
 
     const description = document.createElement("p");
     description.textContent = task.description;
-    textDiv.appendChild(description);
+    description.classList.add("description");
+    taskDiv.appendChild(description);
 
     const buttonDiv = document.createElement("div");
     buttonDiv.classList.add("button-div");
     taskDiv.appendChild(buttonDiv);
+
+    const descriptionButton = document.createElement("button");
+    descriptionButton.classList.add("description-button");
+    descriptionButton.textContent = "D";
+    buttonDiv.appendChild(descriptionButton);
+
+    const renameButton = document.createElement("button");
+    renameButton.classList.add("rename-button");
+    renameButton.textContent = "R";
+    buttonDiv.appendChild(renameButton);
 
     const checkBox = document.createElement("button");
     checkBox.classList.add("checkbox");
@@ -107,7 +123,7 @@ export const heroInterface = {
 
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete");
-    deleteButton.setAttribute("data-num", 0 /* numOfDisplayedProjects */);
+    deleteButton.setAttribute("data-num", numOfDisplayedTasks);
     deleteButton.style.color = "red";
     deleteButton.textContent = "X";
     buttonDiv.appendChild(deleteButton);

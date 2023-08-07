@@ -7,7 +7,24 @@ export const objectsInterface = {
           type: "task",
           name: "Hello World",
           priority: "1",
-          description: "First task",
+          description:
+            "-First task, with a  reeeeeeeeeeeeallyyyyyyyyy long description ",
+          status: undefined,
+        },
+        {
+          type: "task",
+          name: "Hello World",
+          priority: "1",
+          description:
+            "-First task, with a  reeeeeeeeeeeeallyyyyyyyyy long description ",
+          status: undefined,
+        },
+        {
+          type: "task",
+          name: "Hello World",
+          priority: "1",
+          description:
+            "-First task, with a  reeeeeeeeeeeeallyyyyyyyyy long description ",
           status: undefined,
         },
       ],
