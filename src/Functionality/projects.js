@@ -5,7 +5,7 @@ export const objectsInterface = {
       tasks: [
         {
           type: "task",
-          name: "Hello World",
+          name: "Hello",
           priority: "1",
           description:
             "-First task, with a  reeeeeeeeeeeeallyyyyyyyyy long description ",
@@ -13,7 +13,7 @@ export const objectsInterface = {
         },
         {
           type: "task",
-          name: "Hello World",
+          name: "World",
           priority: "1",
           description:
             "-First task, with a  reeeeeeeeeeeeallyyyyyyyyy long description ",
@@ -21,7 +21,7 @@ export const objectsInterface = {
         },
         {
           type: "task",
-          name: "Hello World",
+          name: "123 World",
           priority: "1",
           description:
             "-First task, with a  reeeeeeeeeeeeallyyyyyyyyy long description ",
@@ -80,5 +80,8 @@ export const objectsInterface = {
   },
   removeProject: function (indexOfProject) {
     objectsInterface.projectsArray.splice(indexOfProject, 1);
+  },
+  removeTask: function (project, indexOfTask) {
+    project.tasks.splice(indexOfTask, 1);
   },
 };

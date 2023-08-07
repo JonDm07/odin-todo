@@ -2,6 +2,7 @@ import { objectsInterface } from "../Functionality/projects";
 import { projectButtons } from "../Functionality/Buttons/projects";
 import { navBar, navBarInterface } from "./navBar";
 import { navBarButtons } from "../Functionality/Buttons/navBar";
+import { taskButtons } from "../Functionality/Buttons/tasks";
 
 export const heroInterface = {
   numOfDisplayedProjects: function () {
@@ -85,8 +86,6 @@ export const heroInterface = {
   createTaskDiv: function (task) {
     const numOfDisplayedTasks = heroInterface.numOfDisplayedTasks();
 
-    console.log(numOfDisplayedTasks);
-
     const container = document.querySelector(".project-container");
 
     const taskDiv = document.createElement("div");
@@ -146,5 +145,7 @@ export const heroInterface = {
         this.createTaskDiv(project.tasks[i]);
       }
     }
+
+    taskButtons.addAllButtons();
   },
 };
