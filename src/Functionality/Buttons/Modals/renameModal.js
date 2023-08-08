@@ -19,12 +19,19 @@ export const renameModalButtons = {
 
       const name = renameModal.nameInput.value;
 
-      objectsInterface.changeName(project, name);
+      if (objectsInterface.renameMode === "project") {
+        objectsInterface.changeName(project, name);
+
+        homepage.displayProjects(true);
+      } else if (objectsInterface.renameMode === "task") {
+        const task = project.tasks[objectsInterface.indexOfTask];
+
+        objectsInterface.changeName(task, name);
+        heroInterface.displayProject(project);
+      }
 
       modalsInterface.displayModal(renameModal.div);
       modalsInterface.clearInputs(renameModal.div);
-
-      homepage.displayProjects(true);
     };
   },
 };

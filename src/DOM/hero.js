@@ -114,6 +114,7 @@ export const heroInterface = {
     const renameButton = document.createElement("button");
     renameButton.classList.add("rename-button");
     renameButton.textContent = "R";
+    renameButton.setAttribute("data-num", numOfDisplayedTasks);
     buttonDiv.appendChild(renameButton);
 
     const checkBox = document.createElement("button");

@@ -36,6 +36,8 @@ export const objectsInterface = {
   ],
 
   indexOfProject: 0,
+  indexOfTask: 0,
+  renameMode: undefined,
 
   createProject: function (type, name) {
     return { type, name };
