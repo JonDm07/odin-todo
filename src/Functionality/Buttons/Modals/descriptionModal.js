@@ -23,12 +23,20 @@ export const descriptionModalButtons = {
         ".description-modal > form > label > textarea"
       ).value;
 
-      objectsInterface.changeDescription(project, description);
+      if (objectsInterface.descriptionMode === "project") {
+        objectsInterface.changeDescription(project, description);
+
+        homepage.displayProjects(true);
+      } else if (objectsInterface.descriptionMode === "task") {
+        const task = project.tasks[objectsInterface.indexOfTask];
+
+        objectsInterface.changeDescription(task, description);
+
+        heroInterface.displayProject(project);
+      }
 
       modalsInterface.displayModal(descriptionModal.div);
       modalsInterface.clearInputs(descriptionModal.div);
-
-      homepage.displayProjects(true);
     };
   },
 };

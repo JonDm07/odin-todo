@@ -12,6 +12,8 @@ export const navBarButtons = {
   addProjectButton: function () {
     navBar.addProjectButton.onclick = function () {
       modalsInterface.displayModal(projectModal.div);
+
+      objectsInterface.createMode = "project";
     };
   },
   listProjectsButtons: function () {

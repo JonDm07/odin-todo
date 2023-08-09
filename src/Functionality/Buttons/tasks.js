@@ -2,11 +2,13 @@ import { heroInterface } from "../../DOM/hero";
 import { modalsInterface } from "../../DOM/Modals/modalsInteface";
 import { renameModal } from "../../DOM/Modals/renameModal";
 import { objectsInterface } from "../projects";
+import { descriptionModal } from "../../DOM/Modals/descriptionModal";
 
 export const taskButtons = {
   addAllButtons: function () {
     this.addDeleteButton();
     this.addRenameButton();
+    this.addDescritptionButton();
   },
   addDeleteButton: function () {
     const buttons = document.querySelectorAll(".task-div .delete");
@@ -36,6 +38,21 @@ export const taskButtons = {
         objectsInterface.indexOfTask = button.getAttribute("data-num");
 
         modalsInterface.displayModal(renameModal.div);
+      };
+    });
+  },
+  addDescritptionButton: function () {
+    const buttons = document.querySelectorAll(".task-div .description-button");
+
+    buttons.forEach((button) => {
+      button.onclick = function () {
+        const project =
+          objectsInterface.projectsArray[objectsInterface.indexOfProject];
+
+        objectsInterface.descriptionMode = "task";
+        objectsInterface.indexOfTask = button.getAttribute("data-num");
+
+        modalsInterface.displayModal(descriptionModal.div);
       };
     });
   },

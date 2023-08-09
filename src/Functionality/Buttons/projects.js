@@ -30,6 +30,8 @@ export const projectButtons = {
       button.onclick = function () {
         const indexOfProject = button.getAttribute("data-num");
 
+        objectsInterface.descriptionMode = "project";
+
         modalsInterface.displayModal(descriptionModal.div);
       };
     });

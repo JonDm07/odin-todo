@@ -67,13 +67,13 @@ body {
 }
 
 header {
-    grid-column: 2 / -1;
+    grid-column: 1 / -1;
     min-height: 100px;
     background-color: #ABA9E9;
 }
 
 .nav-bar {
-    grid-row: 1 / -1;
+    grid-row: 2 / -1;
     min-width: 80px;
     background-color: var(--navbar-color);
     text-align: center;
@@ -265,7 +265,8 @@ form > label > textarea {
     border: 1px dashed black;
 }
 
-.project-div > div > button:hover {
+.project-div > div > button:hover,
+.task-div button:hover {
     border: 2px solid rgb(131, 131, 131);
 }
 

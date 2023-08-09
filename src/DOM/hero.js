@@ -109,6 +109,7 @@ export const heroInterface = {
     const descriptionButton = document.createElement("button");
     descriptionButton.classList.add("description-button");
     descriptionButton.textContent = "D";
+    descriptionButton.setAttribute("data-num", numOfDisplayedTasks);
     buttonDiv.appendChild(descriptionButton);
 
     const renameButton = document.createElement("button");
