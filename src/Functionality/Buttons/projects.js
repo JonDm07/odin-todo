@@ -11,6 +11,19 @@ export const projectButtons = {
     this.descriptionButton();
     this.deleteButton();
     this.checkboxButton();
+    this.projectDivs();
+  },
+  projectDivs: function () {
+    const divs = document.querySelectorAll(".project-div");
+
+    divs.forEach((div) => {
+      div.onclick = function () {
+        const projectIndex = div.getAttribute("data-num");
+        const project = objectsInterface.projectsArray[projectIndex];
+
+        heroInterface.displayProject(project);
+      };
+    });
   },
   renameButtons: function () {
     const renameButtonsArray = document.querySelectorAll(".rename");
