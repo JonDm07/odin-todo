@@ -3,6 +3,7 @@ import { projectButtons } from "../Functionality/Buttons/projects";
 import { navBar, navBarInterface } from "./navBar";
 import { navBarButtons } from "../Functionality/Buttons/navBar";
 import { taskButtons } from "../Functionality/Buttons/tasks";
+import { heroProjectButtons } from "../Functionality/Buttons/heroProject";
 
 export const heroInterface = {
   numOfDisplayedProjects: function () {
@@ -138,9 +139,18 @@ export const heroInterface = {
     container.classList.add("project-container");
     hero.appendChild(container);
 
+    const headerDiv = document.createElement("div");
+    headerDiv.classList.add("header-div");
+    container.appendChild(headerDiv);
+
     const h3 = document.createElement("h3");
     h3.textContent = `${project.name}`;
-    container.appendChild(h3);
+    headerDiv.appendChild(h3);
+
+    const taskButton = document.createElement("button");
+    taskButton.classList.add("add-task");
+    taskButton.textContent = "+";
+    headerDiv.appendChild(taskButton);
 
     if (project.tasks !== undefined) {
       for (let i = 0; i < project.tasks.length; i++) {
@@ -149,5 +159,6 @@ export const heroInterface = {
     }
 
     taskButtons.addAllButtons();
+    heroProjectButtons.addAllButtons();
   },
 };

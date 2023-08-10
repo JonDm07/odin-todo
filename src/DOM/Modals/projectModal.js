@@ -57,6 +57,7 @@ export const projectModal = {
     projectModal.nameInput = nameInput;
     projectModal.selectInput = selectInput;
     projectModal.submitButton = submitBtn;
+    projectModal.descriptionInput = descriptionInput;
 
     this.addListeneresToModal();
   },

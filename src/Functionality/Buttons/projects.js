@@ -21,6 +21,8 @@ export const projectButtons = {
         const projectIndex = div.getAttribute("data-num");
         const project = objectsInterface.projectsArray[projectIndex];
 
+        objectsInterface.indexOfProject = projectIndex;
+
         heroInterface.displayProject(project);
       };
     });
@@ -29,7 +31,9 @@ export const projectButtons = {
     const renameButtonsArray = document.querySelectorAll(".rename");
 
     renameButtonsArray.forEach((button) => {
-      button.onclick = function () {
+      button.onclick = function (e) {
+        e.stopPropagation();
+
         const indexOfProject = button.getAttribute("data-num");
 
         modalsInterface.displayModal(renameModal.div);
@@ -40,7 +44,9 @@ export const projectButtons = {
     const buttonsArray = document.querySelectorAll(".description");
 
     buttonsArray.forEach((button) => {
-      button.onclick = function () {
+      button.onclick = function (e) {
+        e.stopPropagation();
+
         const indexOfProject = button.getAttribute("data-num");
 
         objectsInterface.descriptionMode = "project";
@@ -53,7 +59,9 @@ export const projectButtons = {
     const buttonsArray = document.querySelectorAll(".delete");
 
     buttonsArray.forEach((button) => {
-      button.onclick = function () {
+      button.onclick = function (e) {
+        e.stopPropagation();
+
         const indexOfProject = button.getAttribute("data-num");
 
         objectsInterface.removeProject(indexOfProject);
@@ -66,7 +74,9 @@ export const projectButtons = {
     const checkBox = document.querySelectorAll(".checkbox");
 
     checkBox.forEach((checkBox) => {
-      checkBox.onclick = function () {
+      checkBox.onclick = function (e) {
+        e.stopPropagation();
+
         if (
           checkBox.style.backgroundColor === "" ||
           checkBox.style.backgroundColor === "rgb(255, 42, 42)"

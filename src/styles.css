@@ -72,6 +72,7 @@ header {
     background-color: #ABA9E9;
 }
 
+
 .nav-bar {
     grid-row: 2 / -1;
     min-width: 80px;
@@ -189,14 +190,15 @@ form > label > textarea {
 }
 
 .project-container h3,
-.project-container p {
+.project-container p,
+.project-container .header-div {
     padding-left: 5px;
     padding-right: 5px;
     display: flex;
     align-items: center;
 }
 
-.project-container > h3 {
+.project-container > .header-div {
     height: 70px;
     font-size: 150%;
 
@@ -259,17 +261,12 @@ form > label > textarea {
 }
 
 .project-div > div > button,
-.task-div button{
+.project-container button {
     height: 30px;
     width: 30px;
 
     border-radius: 10px;
     border: 1px dashed black;
-}
-
-.project-div > div > button:hover,
-.task-div button:hover {
-    border: 2px solid rgb(131, 131, 131);
 }
 
 .project-div > div > .checkbox,
@@ -288,4 +285,11 @@ footer {
     min-height: 70px;
     background-color: #CBC9FF;
     border: none;
+}
+
+/* end of footer,
+   universal rules */
+
+button:hover {
+    border: 2px solid rgb(131, 131, 131);
 }

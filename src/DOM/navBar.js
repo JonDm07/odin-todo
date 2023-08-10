@@ -27,6 +27,7 @@ export const navBarInterface = {
       const button = document.createElement("button");
       button.classList.add("list-button");
       button.textContent = objectsInterface.projectsArray[i].name;
+      button.setAttribute("data-num", i);
       li.appendChild(button);
     }
   },

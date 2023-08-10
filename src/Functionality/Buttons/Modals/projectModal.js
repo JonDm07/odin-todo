@@ -12,24 +12,53 @@ export const projectModalButtons = {
 
       const name = projectModal.nameInput.value;
       const priority = projectModal.selectInput.value;
-      const array = objectsInterface.projectsArray;
-      const type = "project";
+      const description = projectModal.descriptionInput.value;
 
-      if (formValidation.validateForm(name, array) === true) {
-        console.log("INVALID FROM");
-        modalsInterface.displayModal(projectModal.div);
-        return;
-      } else {
-        const project = objectsInterface.createProject(type, name);
-        objectsInterface.changePriority(project, priority);
+      console.log(description);
 
-        objectsInterface.projectsArray.push(project);
+      if (objectsInterface.createMode === "project") {
+        const array = objectsInterface.projectsArray;
 
-        homepage.displayProjects(true);
+        if (formValidation.validateForm(name, array) === true) {
+          console.log("INVALID FROM");
+          modalsInterface.displayModal(projectModal.div);
+          return;
+        } else {
+          const project = objectsInterface.createProject(
+            objectsInterface.createMode,
+            name
+          );
 
-        modalsInterface.displayModal(projectModal.div);
-        modalsInterface.clearInputs(projectModal.div);
+          project.tasks = [];
+          objectsInterface.changePriority(project, priority);
+          objectsInterface.changeDescription(project, description);
+
+          array.push(project);
+
+          homepage.displayProjects(true);
+        }
+      } else if (objectsInterface.createMode === "task") {
+        const project =
+          objectsInterface.projectsArray[objectsInterface.indexOfProject];
+
+        console.log(project);
+
+        const array = project.tasks;
+
+        const task = objectsInterface.createProject(
+          objectsInterface.createMode,
+          name
+        );
+        objectsInterface.changePriority(task, priority);
+        objectsInterface.changeDescription(task, description);
+
+        array.push(task);
+
+        heroInterface.displayProject(project);
       }
+
+      modalsInterface.displayModal(projectModal.div);
+      modalsInterface.clearInputs(projectModal.div);
     };
   },
 };

@@ -26,6 +26,8 @@ export const navBarButtons = {
         );
         const project = objectsInterface.projectsArray[projectIndex];
 
+        objectsInterface.indexOfProject = button.getAttribute("data-num");
+
         heroInterface.displayProject(project);
       };
     });
