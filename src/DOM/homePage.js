@@ -1,7 +1,9 @@
+import { heroButtons } from "../Functionality/Buttons/hero";
 import { navBarButtons } from "../Functionality/Buttons/navBar";
 import { projectButtons } from "../Functionality/Buttons/projects";
 import { objectsInterface } from "../Functionality/projects";
 import "../styles.css";
+import { header } from "./header";
 import { heroInterface } from "./hero";
 import { descriptionModal } from "./Modals/descriptionModal";
 import { projectModal } from "./Modals/projectModal";
@@ -19,6 +21,7 @@ export const homepage = {
     projectModal.createModal();
 
     navBarButtons.addAllButtons();
+    heroButtons.addProjectButton();
   },
   displayProjects: function (bool) {
     heroInterface.createProjectsDiv(bool);
@@ -29,12 +32,15 @@ export const homepage = {
     navBarInterface.updateProjectsNum(objectsInterface.projectsArray.length);
 
     navBarButtons.listProjectsButtons();
+    heroButtons.addProjectButton();
   },
   createElement: function () {
     const body = document.querySelector("body");
 
-    const header = document.createElement("header");
-    body.appendChild(header);
+    const headerDiv = document.createElement("header");
+    body.appendChild(headerDiv);
+
+    header.createHomepageHeader();
 
     const navBarDiv = document.createElement("div");
     navBarDiv.classList.add("nav-bar");
@@ -45,9 +51,6 @@ export const homepage = {
     const hero = document.createElement("div");
     hero.classList.add("hero");
     body.appendChild(hero);
-
-    const footer = document.createElement("footer");
-    body.appendChild(footer);
 
     heroInterface.div = hero;
     navBar.div = navBarDiv;

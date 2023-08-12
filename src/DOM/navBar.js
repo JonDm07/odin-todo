@@ -36,10 +36,12 @@ export const navBarInterface = {
 export const navBar = {
   createNavBar: function () {
     const numOfProjects = objectsInterface.projectsArray.length;
+
     const navBarDiv = document.querySelector(".nav-bar");
-    const projectBtn = document.createElement("button");
-    projectBtn.textContent = "Add Project";
-    navBarDiv.appendChild(projectBtn);
+
+    const homeButton = document.createElement("button");
+    homeButton.classList.add("home-button");
+    navBarDiv.appendChild(homeButton);
 
     const list = document.createElement("ul");
     list.classList.add("project-list");
@@ -50,7 +52,5 @@ export const navBar = {
     span.textContent = `Projects: ${numOfProjects}`;
 
     navBarInterface.updateProjectList();
-
-    navBar.addProjectButton = projectBtn;
   },
 };

@@ -3,7 +3,7 @@ import { projectButtons } from "../Functionality/Buttons/projects";
 import { navBar, navBarInterface } from "./navBar";
 import { navBarButtons } from "../Functionality/Buttons/navBar";
 import { taskButtons } from "../Functionality/Buttons/tasks";
-import { heroProjectButtons } from "../Functionality/Buttons/heroProject";
+import { heroButtons } from "../Functionality/Buttons/hero";
 
 export const heroInterface = {
   numOfDisplayedProjects: function () {
@@ -28,6 +28,18 @@ export const heroInterface = {
     if (removeHeroElements) {
       heroInterface.removeHeroElements();
     }
+
+    const headerDiv = document.createElement("div");
+    headerDiv.classList.add("header-div");
+    heroDiv.appendChild(headerDiv);
+
+    const headerText = document.createElement("h3");
+    headerText.textContent = "Projects:";
+    headerDiv.appendChild(headerText);
+    /* 
+    const lineDiv = document.createElement("div");
+    lineDiv.classList.add("line-div");
+    headerDiv.appendChild(lineDiv); */
 
     for (let i = 0; i < projectsArray.length; i++) {
       let numOfDisplayedProjects = heroInterface.numOfDisplayedProjects();
@@ -83,6 +95,11 @@ export const heroInterface = {
       checkBox.classList.add("checkbox");
       buttonDiv.appendChild(checkBox);
     }
+
+    const projectBtn = document.createElement("button");
+    projectBtn.classList.add("add-project");
+    projectBtn.textContent = "New Project";
+    heroDiv.appendChild(projectBtn);
   },
   createTaskDiv: function (task) {
     const numOfDisplayedTasks = heroInterface.numOfDisplayedTasks();
@@ -159,6 +176,6 @@ export const heroInterface = {
     }
 
     taskButtons.addAllButtons();
-    heroProjectButtons.addAllButtons();
+    heroButtons.addAllButtons();
   },
 };

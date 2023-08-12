@@ -6,15 +6,7 @@ import { objectsInterface } from "../projects";
 
 export const navBarButtons = {
   addAllButtons: function () {
-    this.addProjectButton();
     this.listProjectsButtons();
-  },
-  addProjectButton: function () {
-    navBar.addProjectButton.onclick = function () {
-      modalsInterface.displayModal(projectModal.div);
-
-      objectsInterface.createMode = "project";
-    };
   },
   listProjectsButtons: function () {
     const buttons = document.querySelectorAll(".list-button");

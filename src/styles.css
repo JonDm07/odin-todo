@@ -61,17 +61,25 @@ body {
     padding: 0px;
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 1fr 5.5fr 0.5fr;
+    grid-template-rows: 0.3fr 5.5fr 0.5fr;
     overflow: auto;
 
 }
 
 header {
     grid-column: 1 / -1;
-    min-height: 100px;
+    grid-row: 1 / 2;
+    min-height: 30px;
     background-color: #ABA9E9;
+
+    display: flex;
+    align-items: center;
 }
 
+header > h1 {
+    font-size: 32px;
+    padding: 0px 10px;
+}
 
 .nav-bar {
     grid-row: 2 / -1;
@@ -88,10 +96,6 @@ header {
     color: white;
 }
 
-.nav-bar > button {
-    color: black;
-}
-
 .nav-bar > ul {
     list-style-type: none;
     margin: 0px;
@@ -106,6 +110,19 @@ header {
 .nav-bar > ul > li > button:hover {
     color: red;
 }
+
+.nav-bar > .home-button {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid var(--navbar-color);
+    background-color: var(--navbar-color);
+
+    background-image: url(img/home_FILL0_wght400_GRAD0_opsz48.svg);
+    background-size: contain;
+    background-position: center;
+}
+
 /* modals */
 
 .project-modal,
@@ -180,6 +197,16 @@ form > label > textarea {
    hero,
    project-div */
 
+.hero {
+    grid-row: 2 / -1;
+    
+    display: grid;
+    grid-template-rows: 40px;
+    grid-auto-flow: row;
+    grid-auto-rows: 50px;
+    gap: 10px;
+}
+
 .hero > .project-container {
     display: grid;
     gap:  10px;
@@ -225,20 +252,70 @@ form > label > textarea {
     grid-row: 1 / 2;
 }
 
+.hero > * {
+    margin: 0px 20px;
+}
+
+.hero > .header-div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    margin: 0px 16px;
+}
+
+.hero > .header-div > h3 {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+
+    margin: 0px 4px;
+}
+
+.hero > .add-project {
+    width: 100%;
+    height: 40px;
+    border-radius: 14px;
+    border: 2px solid white;
+    background-color: white;
+    position: relative;
+
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero > .add-project::before {
+    display: inline-block;
+    content: "";
+    color: black;
+    background-image: url(img/add_FILL0_wght400_GRAD0_opsz48.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    height: 40px;
+    width: 40px;
+}
+
+.hero > .add-project:hover {
+    background-color: lightgrey;
+}
+
 .hero > .project-div {
-    border: 1px solid black;
+    border: 1px solid rgb(131, 131, 131);
+    border-radius: 20px;
 
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 1fr;
-
 }
 .project-div > div {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px black dashed;
     gap: 10px;
 }
 
@@ -276,20 +353,10 @@ form > label > textarea {
 }
 
 /* end of project-div,
-   footer */
-
-footer {
-    grid-row: -2 / -1;
-    grid-column: 2 / -1;
-
-    min-height: 70px;
-    background-color: #CBC9FF;
-    border: none;
-}
-
-/* end of footer,
    universal rules */
 
-button:hover {
+button:hover,
+.project-div > div > button:hover,
+.project-container button:hover {
     border: 2px solid rgb(131, 131, 131);
 }
