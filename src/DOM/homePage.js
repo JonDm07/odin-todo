@@ -29,7 +29,6 @@ export const homepage = {
     projectButtons.addAllButtons();
 
     navBarInterface.updateProjectList();
-    navBarInterface.updateProjectsNum(objectsInterface.projectsArray.length);
 
     navBarButtons.listProjectsButtons();
     heroButtons.addProjectButton();

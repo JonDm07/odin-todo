@@ -58,11 +58,6 @@ export const heroInterface = {
 
       name.textContent = projectsArray[i].name;
 
-      const priority = document.createElement("p");
-      textDiv.appendChild(priority);
-
-      priority.textContent = projectsArray[i].priority;
-
       const description = document.createElement("p");
       textDiv.appendChild(description);
 
@@ -94,6 +89,10 @@ export const heroInterface = {
       const checkBox = document.createElement("button");
       checkBox.classList.add("checkbox");
       buttonDiv.appendChild(checkBox);
+
+      const priority = document.createElement("p");
+      priority.textContent = projectsArray[i].priority;
+      buttonDiv.appendChild(priority);
     }
 
     const projectBtn = document.createElement("button");

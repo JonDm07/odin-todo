@@ -50,7 +50,7 @@ export const navBar = {
 
     const span = document.createElement("span");
     list.appendChild(span);
-    span.textContent = `Projects: ${numOfProjects}`;
+    span.textContent = `Your Projects`;
 
     navBarInterface.updateProjectList();
   },

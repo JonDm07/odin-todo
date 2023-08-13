@@ -28,7 +28,7 @@ export const objectsInterface = {
           status: undefined,
         },
       ],
-      name: "Hello World",
+      name: "To do website",
       priority: "1",
       description: "",
       status: undefined,
