@@ -55,13 +55,7 @@ export const heroInterface = {
 
       const name = document.createElement("p");
       textDiv.appendChild(name);
-
       name.textContent = projectsArray[i].name;
-
-      const description = document.createElement("p");
-      textDiv.appendChild(description);
-
-      description.textContent = projectsArray[i].description;
 
       const buttonDiv = document.createElement("div");
       buttonDiv.classList.add("button-div");
@@ -70,20 +64,18 @@ export const heroInterface = {
       const renameButton = document.createElement("button");
       renameButton.classList.add("rename");
       renameButton.setAttribute("data-num", numOfDisplayedProjects);
-      renameButton.textContent = "R";
       buttonDiv.appendChild(renameButton);
 
       const descriptionButton = document.createElement("button");
       descriptionButton.classList.add("description");
       descriptionButton.setAttribute("data-num", numOfDisplayedProjects);
-      descriptionButton.textContent = "D";
+
       buttonDiv.appendChild(descriptionButton);
 
       const deleteButton = document.createElement("button");
       deleteButton.classList.add("delete");
       deleteButton.setAttribute("data-num", numOfDisplayedProjects);
       deleteButton.style.color = "red";
-      deleteButton.textContent = "X";
       buttonDiv.appendChild(deleteButton);
 
       const checkBox = document.createElement("button");
@@ -93,6 +85,14 @@ export const heroInterface = {
       const priority = document.createElement("p");
       priority.textContent = projectsArray[i].priority;
       buttonDiv.appendChild(priority);
+
+      const descriptionDiv = document.createElement("div");
+      descriptionDiv.classList.add("description-div");
+      projectDiv.appendChild(descriptionDiv);
+
+      const description = document.createElement("p");
+      description.textContent = `- ${projectsArray[i].description}`;
+      descriptionDiv.appendChild(description);
     }
 
     const projectBtn = document.createElement("button");
@@ -125,13 +125,11 @@ export const heroInterface = {
 
     const descriptionButton = document.createElement("button");
     descriptionButton.classList.add("description-button");
-    descriptionButton.textContent = "D";
     descriptionButton.setAttribute("data-num", numOfDisplayedTasks);
     buttonDiv.appendChild(descriptionButton);
 
     const renameButton = document.createElement("button");
     renameButton.classList.add("rename-button");
-    renameButton.textContent = "R";
     renameButton.setAttribute("data-num", numOfDisplayedTasks);
     buttonDiv.appendChild(renameButton);
 
@@ -143,7 +141,6 @@ export const heroInterface = {
     deleteButton.classList.add("delete");
     deleteButton.setAttribute("data-num", numOfDisplayedTasks);
     deleteButton.style.color = "red";
-    deleteButton.textContent = "X";
     buttonDiv.appendChild(deleteButton);
   },
   displayProject: function (project) {

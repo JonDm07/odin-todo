@@ -30,7 +30,7 @@ export const objectsInterface = {
       ],
       name: "To do website",
       priority: "1",
-      description: "",
+      description: "An ambitious web project",
       status: undefined,
     },
   ],
