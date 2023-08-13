@@ -1,4 +1,5 @@
 import { heroInterface } from "../../DOM/hero";
+import { homepage } from "../../DOM/homePage";
 import { modalsInterface } from "../../DOM/Modals/modalsInteface";
 import { projectModal } from "../../DOM/Modals/projectModal";
 import { navBar } from "../../DOM/navBar";
@@ -7,6 +8,7 @@ import { objectsInterface } from "../projects";
 export const navBarButtons = {
   addAllButtons: function () {
     this.listProjectsButtons();
+    this.homeButton();
   },
   listProjectsButtons: function () {
     const buttons = document.querySelectorAll(".list-button");
@@ -23,5 +25,13 @@ export const navBarButtons = {
         heroInterface.displayProject(project);
       };
     });
+  },
+  homeButton: function () {
+    const button = document.querySelector(".home-button");
+
+    button.onclick = function () {
+      homepage.displayProjects(true);
+      console.log("home");
+    };
   },
 };

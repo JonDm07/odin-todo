@@ -41,6 +41,7 @@ export const navBar = {
 
     const homeButton = document.createElement("button");
     homeButton.classList.add("home-button");
+    homeButton.textContent = "Home";
     navBarDiv.appendChild(homeButton);
 
     const list = document.createElement("ul");

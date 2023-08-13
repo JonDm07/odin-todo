@@ -37,10 +37,10 @@ export const homepage = {
   createElement: function () {
     const body = document.querySelector("body");
 
-    const headerDiv = document.createElement("header");
+    /*     const headerDiv = document.createElement("header");
     body.appendChild(headerDiv);
 
-    header.createHomepageHeader();
+    header.createHomepageHeader(); */
 
     const navBarDiv = document.createElement("div");
     navBarDiv.classList.add("nav-bar");

@@ -164,16 +164,16 @@ export const heroInterface = {
     h3.textContent = `${project.name}`;
     headerDiv.appendChild(h3);
 
-    const taskButton = document.createElement("button");
-    taskButton.classList.add("add-task");
-    taskButton.textContent = "+";
-    headerDiv.appendChild(taskButton);
-
     if (project.tasks !== undefined) {
       for (let i = 0; i < project.tasks.length; i++) {
         this.createTaskDiv(project.tasks[i]);
       }
     }
+
+    const taskButton = document.createElement("button");
+    taskButton.classList.add("add-task");
+    taskButton.textContent = "add task";
+    container.appendChild(taskButton);
 
     taskButtons.addAllButtons();
     heroButtons.addAllButtons();
