@@ -5,21 +5,12 @@ export function getProjectsFromStorage() {
   return projects;
 }
 
-export function storeDataInStorage(key, value) {
-  if (typeof key !== "string") {
-    console.log("key must be string");
-    return;
-  }
+export function storeProjectsInStorage(projectsArray) {
+  let projects = JSON.stringify(projectsArray);
 
-  value = JSON.stringify(value);
-
-  localStorage.setItem(key, value);
+  localStorage.setItem("projectsArray", projects);
 }
-
 export function updateProjectsOnPageLoad() {
   const storageArray = getProjectsFromStorage();
   let sessionArray = objectsInterface.projectsArray;
 }
-
-
-console.log(hello)

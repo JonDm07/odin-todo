@@ -123,25 +123,25 @@ export const heroInterface = {
     buttonDiv.classList.add("button-div");
     taskDiv.appendChild(buttonDiv);
 
-    const descriptionButton = document.createElement("button");
-    descriptionButton.classList.add("description-button");
-    descriptionButton.setAttribute("data-num", numOfDisplayedTasks);
-    buttonDiv.appendChild(descriptionButton);
-
     const renameButton = document.createElement("button");
     renameButton.classList.add("rename-button");
     renameButton.setAttribute("data-num", numOfDisplayedTasks);
     buttonDiv.appendChild(renameButton);
 
-    const checkBox = document.createElement("button");
-    checkBox.classList.add("checkbox");
-    buttonDiv.appendChild(checkBox);
+    const descriptionButton = document.createElement("button");
+    descriptionButton.classList.add("description-button");
+    descriptionButton.setAttribute("data-num", numOfDisplayedTasks);
+    buttonDiv.appendChild(descriptionButton);
 
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete");
     deleteButton.setAttribute("data-num", numOfDisplayedTasks);
     deleteButton.style.color = "red";
     buttonDiv.appendChild(deleteButton);
+
+    const checkBox = document.createElement("button");
+    checkBox.classList.add("checkbox");
+    buttonDiv.appendChild(checkBox);
   },
   displayProject: function (project) {
     this.removeHeroElements();

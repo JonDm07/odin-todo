@@ -3,6 +3,7 @@ import { modalsInterface } from "../../DOM/Modals/modalsInteface";
 import { renameModal } from "../../DOM/Modals/renameModal";
 import { objectsInterface } from "../projects";
 import { descriptionModal } from "../../DOM/Modals/descriptionModal";
+import { storeProjectsInStorage } from "../storageFcs";
 
 export const taskButtons = {
   addAllButtons: function () {
@@ -25,6 +26,8 @@ export const taskButtons = {
         heroInterface.displayProject(project);
 
         console.log(project.tasks);
+
+        storeProjectsInStorage(objectsInterface.projectsArray);
       };
     });
   },

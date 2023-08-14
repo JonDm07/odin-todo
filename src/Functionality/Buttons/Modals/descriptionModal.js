@@ -3,6 +3,7 @@ import { homepage } from "../../../DOM/homePage";
 import { descriptionModal } from "../../../DOM/Modals/descriptionModal";
 import { modalsInterface } from "../../../DOM/Modals/modalsInteface";
 import { objectsInterface } from "../../projects";
+import { storeProjectsInStorage } from "../../storageFcs";
 
 export const descriptionModalButtons = {
   closeButton: function () {
@@ -37,6 +38,8 @@ export const descriptionModalButtons = {
 
       modalsInterface.displayModal(descriptionModal.div);
       modalsInterface.clearInputs(descriptionModal.div);
+
+      storeProjectsInStorage(objectsInterface.projectsArray);
     };
   },
 };

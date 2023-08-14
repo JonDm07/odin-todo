@@ -4,6 +4,7 @@ import { descriptionModal } from "../../DOM/Modals/descriptionModal";
 import { modalsInterface } from "../../DOM/Modals/modalsInteface";
 import { renameModal } from "../../DOM/Modals/renameModal";
 import { objectsInterface } from "../projects";
+import { storeProjectsInStorage } from "../storageFcs";
 
 export const projectButtons = {
   addAllButtons: function () {
@@ -37,6 +38,8 @@ export const projectButtons = {
         const indexOfProject = button.getAttribute("data-num");
 
         modalsInterface.displayModal(renameModal.div);
+
+        objectsInterface.renameMode = "project";
       };
     });
   },
@@ -67,6 +70,8 @@ export const projectButtons = {
         objectsInterface.removeProject(indexOfProject);
 
         homepage.displayProjects(true);
+
+        storeProjectsInStorage(objectsInterface.projectsArray);
       };
     });
   },
