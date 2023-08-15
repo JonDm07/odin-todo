@@ -35,7 +35,7 @@ export const projectButtons = {
       button.onclick = function (e) {
         e.stopPropagation();
 
-        const indexOfProject = button.getAttribute("data-num");
+        objectsInterface.indexOfProject = button.getAttribute("data-num");
 
         modalsInterface.displayModal(renameModal.div);
 
@@ -50,7 +50,7 @@ export const projectButtons = {
       button.onclick = function (e) {
         e.stopPropagation();
 
-        const indexOfProject = button.getAttribute("data-num");
+        objectsInterface.indexOfProject = button.getAttribute("data-num");
 
         objectsInterface.descriptionMode = "project";
 
