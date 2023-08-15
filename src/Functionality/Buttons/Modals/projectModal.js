@@ -7,6 +7,10 @@ import { objectsInterface } from "../../projects";
 import { storeProjectsInStorage } from "../../storageFcs";
 
 export const projectModalButtons = {
+  addAllButtons: function () {
+    projectModalButtons.submitButton();
+    projectModalButtons.closeButton();
+  },
   submitButton: function () {
     projectModal.submitButton.onclick = function (e) {
       e.preventDefault();
@@ -62,6 +66,14 @@ export const projectModalButtons = {
       modalsInterface.clearInputs(projectModal.div);
 
       storeProjectsInStorage(objectsInterface.projectsArray);
+    };
+  },
+  closeButton: function () {
+    projectModal.closeButton.onclick = function (e) {
+      e.preventDefault();
+
+      modalsInterface.clearInputs(projectModal.div);
+      modalsInterface.displayModal(projectModal.div);
     };
   },
 };

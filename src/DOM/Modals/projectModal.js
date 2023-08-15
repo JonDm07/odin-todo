@@ -12,6 +12,10 @@ export const projectModal = {
     const form = document.createElement("form");
     modalDiv.appendChild(form);
 
+    const closeButton = document.createElement("button");
+    closeButton.classList.add("close-button");
+    form.appendChild(closeButton);
+
     const label = document.createElement("label");
     label.setAttribute("for", `project-name`);
     label.textContent = "Name";
@@ -40,6 +44,14 @@ export const projectModal = {
       options.push(option);
     }
 
+    const dateLabel = document.createElement("label");
+    dateLabel.text = "Due date";
+    form.appendChild(dateLabel);
+
+    const dateInput = document.createElement("input");
+    dateInput.setAttribute("type", "date");
+    dateLabel.appendChild(dateInput);
+
     const descriptionLabel = document.createElement("label");
     descriptionLabel.textContent = "Description";
     form.appendChild(descriptionLabel);
@@ -57,12 +69,9 @@ export const projectModal = {
     projectModal.nameInput = nameInput;
     projectModal.selectInput = selectInput;
     projectModal.submitButton = submitBtn;
+    projectModal.closeButton = closeButton;
     projectModal.descriptionInput = descriptionInput;
 
-    this.addListeneresToModal();
-  },
-
-  addListeneresToModal: function () {
-    projectModalButtons.submitButton();
+    projectModalButtons.addAllButtons();
   },
 };

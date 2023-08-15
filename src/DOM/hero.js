@@ -114,10 +114,12 @@ export const heroInterface = {
     name.classList.add("name");
     taskDiv.appendChild(name);
 
-    const description = document.createElement("p");
-    description.textContent = task.description;
-    description.classList.add("description");
-    taskDiv.appendChild(description);
+    if (task.description !== "") {
+      const description = document.createElement("p");
+      description.textContent = task.description;
+      description.classList.add("description");
+      taskDiv.appendChild(description);
+    }
 
     const buttonDiv = document.createElement("div");
     buttonDiv.classList.add("button-div");
