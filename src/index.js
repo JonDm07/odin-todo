@@ -13,5 +13,3 @@ let projects = getProjectsFromStorage();
 objectsInterface.projectsArray = projects;
 
 homepage.makeHomepage();
-
-modalsInterface.clearInputs(projectModal.div);

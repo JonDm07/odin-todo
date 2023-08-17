@@ -18,17 +18,18 @@ export const projectModal = {
 
     const label = document.createElement("label");
     label.setAttribute("for", `project-name`);
-    label.textContent = "Name";
+    label.textContent = "Name:";
     form.appendChild(label);
 
     const nameInput = document.createElement("input");
     nameInput.setAttribute("type", "text");
     nameInput.setAttribute("id", `project-name`);
     nameInput.setAttribute("name", `project-name`);
+    nameInput.setAttribute("placeholder", "Project name");
     label.appendChild(nameInput);
 
     const selectLabel = document.createElement("label");
-    selectLabel.textContent = "Priority";
+    selectLabel.textContent = "Priority:";
     form.appendChild(selectLabel);
 
     const selectInput = document.createElement("select");
@@ -45,7 +46,7 @@ export const projectModal = {
     }
 
     const dateLabel = document.createElement("label");
-    dateLabel.text = "Due date";
+    dateLabel.textContent = "Due date:";
     form.appendChild(dateLabel);
 
     const dateInput = document.createElement("input");
@@ -53,7 +54,7 @@ export const projectModal = {
     dateLabel.appendChild(dateInput);
 
     const descriptionLabel = document.createElement("label");
-    descriptionLabel.textContent = "Description";
+    descriptionLabel.textContent = "Description:";
     form.appendChild(descriptionLabel);
 
     const descriptionInput = document.createElement("textarea");
