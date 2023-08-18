@@ -2,36 +2,40 @@ export const objectsInterface = {
   projectsArray: [
     {
       type: "project",
+      name: "Project",
       tasks: [
         {
           type: "task",
-          name: "Hello",
-          priority: "1",
-          description:
-            "-First task, with a  reeeeeeeeeeeeallyyyyyyyyy long description ",
-          status: undefined,
+          name: "Task 1",
+          priority: "",
+          description: "Brief description",
         },
-        {
-          type: "task",
-          name: "World",
-          priority: "1",
-          description:
-            "-First task, with a  reeeeeeeeeeeeallyyyyyyyyy long description ",
-          status: undefined,
-        },
-        {
-          type: "task",
-          name: "123 World",
-          priority: "1",
-          description:
-            "-First task, with a  reeeeeeeeeeeeallyyyyyyyyy long description ",
-          status: undefined,
-        },
+        { type: "task", name: "Task 2", priority: "", description: "" },
+        { type: "task", name: " Task 3", priority: "", description: "" },
       ],
-      name: "To do website",
-      priority: "1",
-      description: "An ambitious web project",
-      status: undefined,
+      priority: "",
+      description: "Description",
+    },
+    {
+      type: "project",
+      name: "Project 1",
+      tasks: [],
+      priority: "",
+      description: "Short Description\n",
+    },
+    {
+      type: "project",
+      name: "Project 2",
+      tasks: [],
+      priority: "",
+      description: "A medium sized Description",
+    },
+    {
+      type: "project",
+      name: "Project 3",
+      tasks: [{ type: "task", name: "Task 1", priority: "", description: "" }],
+      priority: "",
+      description: "A long description for a very important project",
     },
   ],
 
@@ -61,6 +65,9 @@ export const objectsInterface = {
     } else {
       console.log("object.status is neither 1 or 0");
     }
+  },
+  changeDueDate: function (object, date) {
+    object.dueDate = date;
   },
   addNotes: function (object, ...note) {
     if (object.notes === undefined) {

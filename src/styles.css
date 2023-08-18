@@ -206,7 +206,8 @@ header > h1 {
 
 .project-modal,
 .rename-modal,
-.description-modal {
+.description-modal,
+.date-modal {
     position: fixed;
     justify-self: center;
     align-self: center;
@@ -223,7 +224,8 @@ form * {
 }
 
 .rename-modal > form,
-.description-modal > form {
+.description-modal > form
+.date-modal > form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -236,9 +238,7 @@ form * {
 
 
 
-.project-modal > form > button,
-.rename-modal > form > button,
-.description-modal > form > button {
+form > button {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -248,9 +248,7 @@ form * {
 }
 
 
-.project-modal > form > label,
-.rename-modal > form > label,
-.description-modal > form > label{
+form > label {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -264,7 +262,7 @@ textarea {
     border: 1px solid rgb(131, 131, 131);
     border-radius: 6px;
 
-    background-color: inherit;   
+    background-color: #29292b  
 
 }
 
@@ -289,6 +287,12 @@ form > label > textarea {
     height: 75px;
 }
 
+.date-modal {
+    display: block;
+    width: 250px;
+    height: 150px;
+    padding: 10px;
+}
 .rename-modal {
     height: 100px;
     width: 300px;
@@ -301,31 +305,45 @@ form > label > textarea {
     z-index: 1;  
 }
 
-.project-modal > form {
+.project-modal > form,
+.date-modal > form {
     display: grid;
     box-sizing: border-box;
 
-    grid-template-rows: 30px;
+    /* grid-template-rows: 30px; */
     grid-auto-flow: row;
     grid-auto-rows: 1fr;
+
+    gap: 5px;
 
     padding: 10px;
     height: 100%;
 }
 
-.project-modal > form > .close-button {
+form > .close-button {
     width: 30px;
     height: 30px;
     background-image: url(img/cancel_FILL0_wght300_GRAD0_opsz48.svg);
 
     justify-self: flex-end;
-
-
-
 }
 
-.project-modal > form > .close-button:hover {
+form > .close-button:hover {
     background-image: url(img/cancel_FILL1_wght300_GRAD0_opsz48.svg);
+}
+
+form > .submit {
+    width: 30px;
+    height: 30px;
+    background-image: url(img/check_circle_FILL1_wght300_GRAD0_opsz48.svg);
+
+    justify-self: flex-end;
+    align-self: center;
+}
+
+form > .submit:hover {
+    background-image: url(img/check_circle_FILL1_wght300_GRAD0_opsz48\ \ GREEN.svg);
+    /* color: #2f934a; */
 }
 
 
@@ -426,7 +444,7 @@ form > label > textarea {
 
 .hero > .add-project,
 .add-task {
-    height: 25px;
+    height: 35px;
     padding: 0px 6px;
     border-radius: 14px;
     border: 0px solid white;
@@ -448,14 +466,14 @@ form > label > textarea {
     background-repeat: no-repeat;
     background-size: cover;
 
-    height: 25px;
+    height: 100%;
     width: 25px;
 }
 
 .hero > .add-project:hover,
 .add-task:hover {
     background-color: lightgrey;
-    box-shadow: var(--box-shadow)
+    box-shadow: var(--box-shadow);
 }
 
 .hero > .project-div {

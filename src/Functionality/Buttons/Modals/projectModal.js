@@ -18,8 +18,10 @@ export const projectModalButtons = {
       const name = projectModal.nameInput.value;
       const priority = projectModal.selectInput.value;
       const description = projectModal.descriptionInput.value;
+      const dueDate = projectModal.dateInput;
 
-      console.log(description);
+      const date = dueDate.value.split("-");
+      const projectDate = new Date(date[0], date[1], date[2]);
 
       if (objectsInterface.createMode === "project") {
         const array = objectsInterface.projectsArray;
@@ -37,6 +39,7 @@ export const projectModalButtons = {
           project.tasks = [];
           objectsInterface.changePriority(project, priority);
           objectsInterface.changeDescription(project, description);
+          objectsInterface.changeDueDate(task, projectDate);
 
           array.push(project);
 
@@ -56,6 +59,7 @@ export const projectModalButtons = {
         );
         objectsInterface.changePriority(task, priority);
         objectsInterface.changeDescription(task, description);
+        objectsInterface.changeDueDate(task, projectDate);
 
         array.push(task);
 

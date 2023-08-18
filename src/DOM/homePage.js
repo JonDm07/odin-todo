@@ -5,6 +5,7 @@ import { objectsInterface } from "../Functionality/projects";
 import "../styles.css";
 import { header } from "./header";
 import { heroInterface } from "./hero";
+import { dateModal } from "./Modals/dateModal";
 import { descriptionModal } from "./Modals/descriptionModal";
 import { projectModal } from "./Modals/projectModal";
 import { renameModal } from "./Modals/renameModal";
@@ -14,11 +15,11 @@ export const homepage = {
   makeHomepage: function () {
     this.createElement();
     this.displayProjects(false);
-    /*     heroInterface.displayProject(objectsInterface.projectsArray[0]); */
 
     renameModal.createModal();
     descriptionModal.createModal();
     projectModal.createModal();
+    dateModal.createModal();
 
     navBarButtons.addAllButtons();
     heroButtons.addProjectButton();
@@ -35,11 +36,6 @@ export const homepage = {
   },
   createElement: function () {
     const body = document.querySelector("body");
-
-    /*     const headerDiv = document.createElement("header");
-    body.appendChild(headerDiv);
-
-    header.createHomepageHeader(); */
 
     const navBarDiv = document.createElement("div");
     navBarDiv.classList.add("nav-bar");

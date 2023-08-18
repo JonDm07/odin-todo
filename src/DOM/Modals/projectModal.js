@@ -62,8 +62,8 @@ export const projectModal = {
     descriptionInput.setAttribute("rows", "5");
 
     const submitBtn = document.createElement("button");
+    submitBtn.classList.add("submit");
     submitBtn.setAttribute("type", "submit");
-    submitBtn.textContent = "Submit";
     form.appendChild(submitBtn);
 
     projectModal.div = modalDiv;
@@ -72,6 +72,7 @@ export const projectModal = {
     projectModal.submitButton = submitBtn;
     projectModal.closeButton = closeButton;
     projectModal.descriptionInput = descriptionInput;
+    projectModal.dateInput = dateInput;
 
     projectModalButtons.addAllButtons();
   },

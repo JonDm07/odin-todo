@@ -6,6 +6,10 @@ import { objectsInterface } from "../../projects";
 import { storeProjectsInStorage } from "../../storageFcs";
 
 export const descriptionModalButtons = {
+  addAllButtons: function () {
+    this.closeButton();
+    this.submitButton();
+  },
   closeButton: function () {
     descriptionModal.closeButton.onclick = function () {
       const modal = descriptionModal.div;
