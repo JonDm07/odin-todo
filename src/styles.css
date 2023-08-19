@@ -485,7 +485,7 @@ form > .submit:hover {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 1fr;
-    padding: 10px 0px;
+    padding: 10px 15px;
 
     background-color: #F4F5F4
 }
@@ -508,13 +508,11 @@ form > .submit:hover {
 
 .project-div > .text-div {
     justify-content: flex-start;
-    padding: 0px 10px;
 }
 
 .project-div > .description-div {
     display: flex;
     justify-content: flex-start;
-    padding: 0px 10px;
 }
 
 .project-div > div:nth-child(1) {

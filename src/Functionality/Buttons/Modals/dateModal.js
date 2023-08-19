@@ -3,6 +3,8 @@ import { modalsInterface } from "../../../DOM/Modals/modalsInteface";
 import { objectsInterface } from "../../projects";
 import { homepage } from "../../../DOM/homePage";
 import { storage } from "../../storageFcs";
+import { heroButtons } from "../hero";
+import { heroInterface } from "../../../DOM/hero";
 
 export const dateModalButtons = {
   addAllButtons: function () {
@@ -27,12 +29,16 @@ export const dateModalButtons = {
       if (objectsInterface.dateMode === "project") {
         objectsInterface.changeDueDate(project, date);
 
-        console.log(project);
-
         homepage.displayProjects(true);
+      } else if (objectsInterface.dateMode === "task") {
+        const task = project.tasks[[objectsInterface.indexOfTask]];
+
+        objectsInterface.changeDueDate(task, date);
+
+        heroInterface.displayProject(project);
       }
       storage.storeProjectsInStorage(objectsInterface.projectsArray);
-      /* modalsInterface.displayModal(dateModal.div) */
+      modalsInterface.displayModal(dateModal.div);
     };
   },
 };

@@ -6,11 +6,15 @@ export const storage = {
 
     projects.forEach((project) => {
       objectsInterface.makeDateObjectsFromISO(project);
+
+      project.tasks.forEach((task) => {
+        objectsInterface.makeDateObjectsFromISO(task);
+      });
     });
     return projects;
   },
   storeProjectsInStorage: function () {
-    let projects = JSON.stringify(projectsArray);
+    let projects = JSON.stringify(objectsInterface.projectsArray);
 
     localStorage.setItem("projectsArray", projects);
   },

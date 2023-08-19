@@ -90,7 +90,9 @@ export const heroInterface = {
       if (objectsInterface.projectsArray[i].dueDate) {
         const dueDate = document.createElement("p");
         const projectDate = objectsInterface.projectsArray[i].dueDate;
-        dueDate.textContent = projectDate.toLocaleDateString();
+        dueDate.textContent = projectDate.toLocaleDateString(
+          navigator.language
+        );
         buttonDiv.appendChild(dueDate);
       }
 
@@ -143,6 +145,11 @@ export const heroInterface = {
     descriptionButton.setAttribute("data-num", numOfDisplayedTasks);
     buttonDiv.appendChild(descriptionButton);
 
+    const calendarButton = document.createElement("button");
+    calendarButton.classList.add("date");
+    calendarButton.setAttribute("data-num", numOfDisplayedTasks);
+    buttonDiv.appendChild(calendarButton);
+
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete");
     deleteButton.setAttribute("data-num", numOfDisplayedTasks);
@@ -152,6 +159,13 @@ export const heroInterface = {
     const checkBox = document.createElement("button");
     checkBox.classList.add("checkbox");
     buttonDiv.appendChild(checkBox);
+
+    if (task.dueDate) {
+      const dueDate = document.createElement("p");
+      const projectDate = task.dueDate;
+      dueDate.textContent = projectDate.toLocaleDateString(navigator.language);
+      buttonDiv.appendChild(dueDate);
+    }
   },
   displayProject: function (project) {
     this.removeHeroElements();

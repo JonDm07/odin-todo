@@ -4,12 +4,14 @@ import { renameModal } from "../../DOM/Modals/renameModal";
 import { objectsInterface } from "../projects";
 import { descriptionModal } from "../../DOM/Modals/descriptionModal";
 import { storage } from "../storageFcs";
+import { dateModal } from "../../DOM/Modals/dateModal";
 
 export const taskButtons = {
   addAllButtons: function () {
     this.addDeleteButton();
     this.addRenameButton();
     this.addDescritptionButton();
+    this.changeDueDateButton();
   },
   addDeleteButton: function () {
     const buttons = document.querySelectorAll(".task-div .delete");
@@ -32,7 +34,7 @@ export const taskButtons = {
     });
   },
   addRenameButton: function () {
-    const buttons = document.querySelectorAll(".task-div .rename-button");
+    const buttons = document.querySelectorAll(".task-div .rename");
 
     buttons.forEach((button) => {
       button.onclick = function () {
@@ -45,17 +47,29 @@ export const taskButtons = {
     });
   },
   addDescritptionButton: function () {
-    const buttons = document.querySelectorAll(".task-div .description-button");
+    const buttons = document.querySelectorAll(".task-div .description");
 
     buttons.forEach((button) => {
       button.onclick = function () {
-        const project =
-          objectsInterface.projectsArray[objectsInterface.indexOfProject];
+        /*         const project =
+          objectsInterface.projectsArray[objectsInterface.indexOfProject]; */
 
         objectsInterface.descriptionMode = "task";
         objectsInterface.indexOfTask = button.getAttribute("data-num");
 
         modalsInterface.displayModal(descriptionModal.div);
+      };
+    });
+  },
+  changeDueDateButton: function () {
+    const buttons = document.querySelectorAll(".task-div .date");
+
+    buttons.forEach((button) => {
+      button.onclick = function () {
+        objectsInterface.dateMode = "task";
+        objectsInterface.indexOfTask = button.getAttribute("data-num");
+
+        modalsInterface.displayModal(dateModal.div);
       };
     });
   },
