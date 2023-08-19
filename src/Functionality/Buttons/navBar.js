@@ -31,7 +31,6 @@ export const navBarButtons = {
 
     button.onclick = function () {
       homepage.displayProjects(true);
-      console.log("home");
     };
   },
 };

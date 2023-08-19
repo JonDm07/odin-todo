@@ -36,10 +36,6 @@ export const heroInterface = {
     const headerText = document.createElement("h3");
     headerText.textContent = "Projects:";
     headerDiv.appendChild(headerText);
-    /* 
-    const lineDiv = document.createElement("div");
-    lineDiv.classList.add("line-div");
-    headerDiv.appendChild(lineDiv); */
 
     for (let i = 0; i < projectsArray.length; i++) {
       let numOfDisplayedProjects = heroInterface.numOfDisplayedProjects();
@@ -69,8 +65,12 @@ export const heroInterface = {
       const descriptionButton = document.createElement("button");
       descriptionButton.classList.add("description");
       descriptionButton.setAttribute("data-num", numOfDisplayedProjects);
-
       buttonDiv.appendChild(descriptionButton);
+
+      const calendarButton = document.createElement("button");
+      calendarButton.classList.add("date");
+      calendarButton.setAttribute("data-num", numOfDisplayedProjects);
+      buttonDiv.appendChild(calendarButton);
 
       const deleteButton = document.createElement("button");
       deleteButton.classList.add("delete");
@@ -83,8 +83,16 @@ export const heroInterface = {
       buttonDiv.appendChild(checkBox);
 
       const priority = document.createElement("p");
-      priority.textContent = projectsArray[i].priority;
+      priority.classList.add("priority-text");
+      priority.textContent = objectsInterface.projectsArray[i].priority;
       buttonDiv.appendChild(priority);
+
+      if (objectsInterface.projectsArray[i].dueDate) {
+        const dueDate = document.createElement("p");
+        const projectDate = objectsInterface.projectsArray[i].dueDate;
+        dueDate.textContent = projectDate.toLocaleDateString();
+        buttonDiv.appendChild(dueDate);
+      }
 
       const descriptionDiv = document.createElement("div");
       descriptionDiv.classList.add("description-div");
@@ -126,12 +134,12 @@ export const heroInterface = {
     taskDiv.appendChild(buttonDiv);
 
     const renameButton = document.createElement("button");
-    renameButton.classList.add("rename-button");
+    renameButton.classList.add("rename");
     renameButton.setAttribute("data-num", numOfDisplayedTasks);
     buttonDiv.appendChild(renameButton);
 
     const descriptionButton = document.createElement("button");
-    descriptionButton.classList.add("description-button");
+    descriptionButton.classList.add("description");
     descriptionButton.setAttribute("data-num", numOfDisplayedTasks);
     buttonDiv.appendChild(descriptionButton);
 

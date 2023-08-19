@@ -3,7 +3,7 @@ import { homepage } from "../../../DOM/homePage";
 import { descriptionModal } from "../../../DOM/Modals/descriptionModal";
 import { modalsInterface } from "../../../DOM/Modals/modalsInteface";
 import { objectsInterface } from "../../projects";
-import { storeProjectsInStorage } from "../../storageFcs";
+import { storage } from "../../storageFcs";
 
 export const descriptionModalButtons = {
   addAllButtons: function () {
@@ -43,7 +43,7 @@ export const descriptionModalButtons = {
       modalsInterface.displayModal(descriptionModal.div);
       modalsInterface.clearInputs(descriptionModal.div);
 
-      storeProjectsInStorage(objectsInterface.projectsArray);
+      storage.storeProjectsInStorage(objectsInterface.projectsArray);
     };
   },
 };

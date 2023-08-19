@@ -4,7 +4,7 @@ import { modalsInterface } from "../../../DOM/Modals/modalsInteface";
 import { projectModal } from "../../../DOM/Modals/projectModal";
 import { formValidation } from "../../formValidation";
 import { objectsInterface } from "../../projects";
-import { storeProjectsInStorage } from "../../storageFcs";
+import { storage } from "../../storageFcs";
 
 export const projectModalButtons = {
   addAllButtons: function () {
@@ -69,7 +69,7 @@ export const projectModalButtons = {
       modalsInterface.displayModal(projectModal.div);
       modalsInterface.clearInputs(projectModal.div);
 
-      storeProjectsInStorage(objectsInterface.projectsArray);
+      storage.storeProjectsInStorage(objectsInterface.projectsArray);
     };
   },
   closeButton: function () {

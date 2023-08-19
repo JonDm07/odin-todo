@@ -1,10 +1,11 @@
 import { heroInterface } from "../../DOM/hero";
 import { homepage } from "../../DOM/homePage";
+import { dateModal } from "../../DOM/Modals/dateModal";
 import { descriptionModal } from "../../DOM/Modals/descriptionModal";
 import { modalsInterface } from "../../DOM/Modals/modalsInteface";
 import { renameModal } from "../../DOM/Modals/renameModal";
 import { objectsInterface } from "../projects";
-import { storeProjectsInStorage } from "../storageFcs";
+import { storage } from "../storageFcs";
 
 export const projectButtons = {
   addAllButtons: function () {
@@ -13,6 +14,7 @@ export const projectButtons = {
     this.deleteButton();
     this.checkboxButton();
     this.projectDivs();
+    this.calendarButton();
   },
   projectDivs: function () {
     const divs = document.querySelectorAll(".project-div");
@@ -29,7 +31,9 @@ export const projectButtons = {
     });
   },
   renameButtons: function () {
-    const renameButtonsArray = document.querySelectorAll(".rename");
+    const renameButtonsArray = document.querySelectorAll(
+      ".project-div .rename"
+    );
 
     renameButtonsArray.forEach((button) => {
       button.onclick = function (e) {
@@ -44,7 +48,7 @@ export const projectButtons = {
     });
   },
   descriptionButton: function () {
-    const buttonsArray = document.querySelectorAll(".description");
+    const buttonsArray = document.querySelectorAll(".project-div .description");
 
     buttonsArray.forEach((button) => {
       button.onclick = function (e) {
@@ -59,7 +63,7 @@ export const projectButtons = {
     });
   },
   deleteButton: function () {
-    const buttonsArray = document.querySelectorAll(".delete");
+    const buttonsArray = document.querySelectorAll(".project-div .delete");
 
     buttonsArray.forEach((button) => {
       button.onclick = function (e) {
@@ -71,7 +75,22 @@ export const projectButtons = {
 
         homepage.displayProjects(true);
 
-        storeProjectsInStorage(objectsInterface.projectsArray);
+        storage.storeProjectsInStorage(objectsInterface.projectsArray);
+      };
+    });
+  },
+  calendarButton: function () {
+    const buttons = document.querySelectorAll(".project-div .date");
+
+    buttons.forEach((button) => {
+      button.onclick = function (e) {
+        e.stopPropagation();
+
+        objectsInterface.indexOfProject = button.getAttribute("data-num");
+
+        objectsInterface.dateMode = "project";
+
+        modalsInterface.displayModal(dateModal.div);
       };
     });
   },

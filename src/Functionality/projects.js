@@ -13,28 +13,28 @@ export const objectsInterface = {
         { type: "task", name: "Task 2", priority: "", description: "" },
         { type: "task", name: " Task 3", priority: "", description: "" },
       ],
-      priority: "",
+      priority: "1",
       description: "Description",
     },
     {
       type: "project",
       name: "Project 1",
       tasks: [],
-      priority: "",
+      priority: "1",
       description: "Short Description\n",
     },
     {
       type: "project",
       name: "Project 2",
       tasks: [],
-      priority: "",
+      priority: "1",
       description: "A medium sized Description",
     },
     {
       type: "project",
       name: "Project 3",
       tasks: [{ type: "task", name: "Task 1", priority: "", description: "" }],
-      priority: "",
+      priority: "1",
       description: "A long description for a very important project",
     },
   ],
@@ -44,6 +44,7 @@ export const objectsInterface = {
   renameMode: undefined,
   createMode: undefined,
   descriptionMode: undefined,
+  dateMode: undefined,
 
   createProject: function (type, name) {
     return { type, name };
@@ -94,5 +95,12 @@ export const objectsInterface = {
   },
   removeTask: function (project, indexOfTask) {
     project.tasks.splice(indexOfTask, 1);
+  },
+  makeDateObjectsFromISO: function (project) {
+    if (typeof project.dueDate !== "object") {
+      const dateObject = new Date(project.dueDate);
+
+      project.dueDate = dateObject;
+    }
   },
 };

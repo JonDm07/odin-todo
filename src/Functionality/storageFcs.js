@@ -1,16 +1,23 @@
 import { objectsInterface } from "./projects";
 
-export function getProjectsFromStorage() {
-  let projects = JSON.parse(localStorage.getItem("projectsArray"));
-  return projects;
-}
+export const storage = {
+  getProjectsFromStorage: function () {
+    let projects = JSON.parse(localStorage.getItem("projectsArray"));
 
-export function storeProjectsInStorage(projectsArray) {
-  let projects = JSON.stringify(projectsArray);
+    projects.forEach((project) => {
+      objectsInterface.makeDateObjectsFromISO(project);
+    });
+    return projects;
+  },
+  storeProjectsInStorage: function () {
+    let projects = JSON.stringify(projectsArray);
 
-  localStorage.setItem("projectsArray", projects);
-}
-export function updateProjectsOnPageLoad() {
+    localStorage.setItem("projectsArray", projects);
+  },
+};
+
+/* export function updateProjectsOnPageLoad() {
   const storageArray = getProjectsFromStorage();
   let sessionArray = objectsInterface.projectsArray;
 }
+ */

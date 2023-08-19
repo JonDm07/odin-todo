@@ -3,7 +3,7 @@ import { modalsInterface } from "../../DOM/Modals/modalsInteface";
 import { renameModal } from "../../DOM/Modals/renameModal";
 import { objectsInterface } from "../projects";
 import { descriptionModal } from "../../DOM/Modals/descriptionModal";
-import { storeProjectsInStorage } from "../storageFcs";
+import { storage } from "../storageFcs";
 
 export const taskButtons = {
   addAllButtons: function () {
@@ -27,7 +27,7 @@ export const taskButtons = {
 
         console.log(project.tasks);
 
-        storeProjectsInStorage(objectsInterface.projectsArray);
+        storage.storeProjectsInStorage(objectsInterface.projectsArray);
       };
     });
   },
