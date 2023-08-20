@@ -28,8 +28,6 @@ export const taskButtons = {
 
         heroInterface.displayProject(project);
 
-        console.log(project.tasks);
-
         storage.storeProjectsInStorage(objectsInterface.projectsArray);
       };
     });

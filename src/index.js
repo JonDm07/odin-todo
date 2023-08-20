@@ -9,8 +9,4 @@ let projects = storage.getProjectsFromStorage();
 
 objectsInterface.projectsArray = projects;
 
-console.log(localStorage);
-
 homepage.makeHomepage();
-
-console.log(objectsInterface.projectsArray);
