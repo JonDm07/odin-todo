@@ -1,16 +1,17 @@
 export const formValidation = {
-  checkIfEmpty: function (input) {
-    if (input === "") {
-      return 400;
+  checkIfEmpty: function (inputValue) {
+    if (inputValue === "") {
+      alert("Empty!");
+      return true;
     } else {
       return false;
     }
   },
-  checkSameName: function (input, array) {
+  checkSameName: function (inputValue, array) {
     let takenArray = [];
 
     array.forEach((element) => {
-      if (element.name === input) {
+      if (element.name === inputValue) {
         takenArray.push(true);
       }
     });
@@ -18,17 +19,17 @@ export const formValidation = {
     if (takenArray.length === 0) {
       return false;
     } else {
-      return 401;
+      alert("Name taken");
+      return true;
     }
   },
 
-  validateForm: function (input, array) {
-    if (formValidation.checkIfEmpty(input) === 400) {
-      /* modals.changeInputError(input, 400); */
+  validateForm: function (inputValue, array) {
+    if (formValidation.checkIfEmpty(inputValue) === true) {
       return true;
     }
 
-    if (formValidation.checkSameName(input, array) === 401) {
+    if (formValidation.checkSameName(inputValue, array) === true) {
       return true;
     } else {
       return false;

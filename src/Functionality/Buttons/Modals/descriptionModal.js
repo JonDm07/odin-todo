@@ -2,6 +2,7 @@ import { heroInterface } from "../../../DOM/hero";
 import { homepage } from "../../../DOM/homePage";
 import { descriptionModal } from "../../../DOM/Modals/descriptionModal";
 import { modalsInterface } from "../../../DOM/Modals/modalsInteface";
+import { formValidation } from "../../formValidation";
 import { objectsInterface } from "../../projects";
 import { storage } from "../../storageFcs";
 
@@ -14,6 +15,7 @@ export const descriptionModalButtons = {
     descriptionModal.closeButton.onclick = function () {
       const modal = descriptionModal.div;
 
+      modalsInterface.undoInvalidInput(descriptionModal.textarea);
       modalsInterface.displayModal(modal);
     };
   },
@@ -24,9 +26,12 @@ export const descriptionModalButtons = {
       const project =
         objectsInterface.projectsArray[objectsInterface.indexOfProject];
 
-      const description = document.querySelector(
-        ".description-modal > form > label > textarea"
-      ).value;
+      const description = descriptionModal.textarea.value;
+
+      if (formValidation.checkIfEmpty(description)) {
+        modalsInterface.invalidInput(descriptionModal.textarea);
+        return;
+      }
 
       if (objectsInterface.descriptionMode === "project") {
         objectsInterface.changeDescription(project, description);
@@ -41,6 +46,7 @@ export const descriptionModalButtons = {
       }
 
       modalsInterface.displayModal(descriptionModal.div);
+      modalsInterface.undoInvalidInput(descriptionModal.textarea);
       modalsInterface.clearInputs(descriptionModal.div);
 
       storage.storeProjectsInStorage(objectsInterface.projectsArray);

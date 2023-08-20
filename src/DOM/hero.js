@@ -79,7 +79,13 @@ export const heroInterface = {
       buttonDiv.appendChild(deleteButton);
 
       const checkBox = document.createElement("button");
+      checkBox.setAttribute("data-num", numOfDisplayedProjects);
       checkBox.classList.add("checkbox");
+      if (objectsInterface.projectsArray[i].status === 0) {
+        checkBox.classList.add("zero");
+      } else if (objectsInterface.projectsArray[i].status === 1) {
+        checkBox.classList.add("one");
+      }
       buttonDiv.appendChild(checkBox);
 
       const priority = document.createElement("p");
@@ -89,6 +95,11 @@ export const heroInterface = {
 
       if (objectsInterface.projectsArray[i].dueDate) {
         const dueDate = document.createElement("p");
+
+        objectsInterface.makeDateObjectsFromISO(
+          objectsInterface.projectsArray[i]
+        );
+
         const projectDate = objectsInterface.projectsArray[i].dueDate;
         dueDate.textContent = projectDate.toLocaleDateString(
           navigator.language
@@ -157,11 +168,20 @@ export const heroInterface = {
     buttonDiv.appendChild(deleteButton);
 
     const checkBox = document.createElement("button");
+    checkBox.setAttribute("data-num", numOfDisplayedTasks);
     checkBox.classList.add("checkbox");
+    if (task.status === 0) {
+      checkBox.classList.add("zero");
+    } else if (task.status === 1) {
+      checkBox.classList.add("one");
+    }
     buttonDiv.appendChild(checkBox);
 
     if (task.dueDate) {
       const dueDate = document.createElement("p");
+
+      objectsInterface.makeDateObjectsFromISO(task);
+
       const projectDate = task.dueDate;
       dueDate.textContent = projectDate.toLocaleDateString(navigator.language);
       buttonDiv.appendChild(dueDate);

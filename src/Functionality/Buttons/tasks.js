@@ -12,6 +12,7 @@ export const taskButtons = {
     this.addRenameButton();
     this.addDescritptionButton();
     this.changeDueDateButton();
+    this.checkboxButton();
   },
   addDeleteButton: function () {
     const buttons = document.querySelectorAll(".task-div .delete");
@@ -51,9 +52,6 @@ export const taskButtons = {
 
     buttons.forEach((button) => {
       button.onclick = function () {
-        /*         const project =
-          objectsInterface.projectsArray[objectsInterface.indexOfProject]; */
-
         objectsInterface.descriptionMode = "task";
         objectsInterface.indexOfTask = button.getAttribute("data-num");
 
@@ -70,6 +68,33 @@ export const taskButtons = {
         objectsInterface.indexOfTask = button.getAttribute("data-num");
 
         modalsInterface.displayModal(dateModal.div);
+      };
+    });
+  },
+  checkboxButton: function () {
+    const checkBox = document.querySelectorAll(".checkbox");
+
+    checkBox.forEach((button) => {
+      button.onclick = function (e) {
+        e.stopPropagation();
+
+        objectsInterface.indexOfTask = button.getAttribute("data-num");
+        const project =
+          objectsInterface.projectsArray[objectsInterface.indexOfProject];
+
+        const task = project.tasks[objectsInterface.indexOfTask];
+
+        if (task.status === 0) {
+          task.status = 1;
+          button.classList.remove("zero");
+          button.classList.add("one");
+        } else if (task.status === 1) {
+          task.status = 0;
+          button.classList.remove("one");
+          button.classList.add("zero");
+        }
+
+        storage.storeProjectsInStorage(objectsInterface.projectsArray);
       };
     });
   },

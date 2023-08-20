@@ -4,13 +4,13 @@ export const storage = {
   getProjectsFromStorage: function () {
     let projects = JSON.parse(localStorage.getItem("projectsArray"));
 
-    projects.forEach((project) => {
+    /*     projects.forEach((project) => {
       objectsInterface.makeDateObjectsFromISO(project);
 
       project.tasks.forEach((task) => {
         objectsInterface.makeDateObjectsFromISO(task);
       });
-    });
+    }); */
     return projects;
   },
   storeProjectsInStorage: function () {

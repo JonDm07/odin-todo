@@ -97,18 +97,25 @@ export const projectButtons = {
   checkboxButton: function () {
     const checkBox = document.querySelectorAll(".checkbox");
 
-    checkBox.forEach((checkBox) => {
-      checkBox.onclick = function (e) {
+    checkBox.forEach((button) => {
+      button.onclick = function (e) {
         e.stopPropagation();
 
-        if (
-          checkBox.style.backgroundColor === "" ||
-          checkBox.style.backgroundColor === "rgb(255, 42, 42)"
-        ) {
-          checkBox.style.backgroundColor = "rgb(31, 171, 26)";
-        } else {
-          checkBox.style.backgroundColor = "rgb(255, 42, 42)";
+        objectsInterface.indexOfProject = button.getAttribute("data-num");
+        const project =
+          objectsInterface.projectsArray[objectsInterface.indexOfProject];
+
+        if (project.status === 0) {
+          project.status = 1;
+          button.classList.remove("zero");
+          button.classList.add("one");
+        } else if (project.status === 1) {
+          project.status = 0;
+          button.classList.remove("one");
+          button.classList.add("zero");
         }
+
+        storage.storeProjectsInStorage(objectsInterface.projectsArray);
       };
     });
   },

@@ -25,12 +25,12 @@ export const descriptionModal = {
     const submitButton = document.createElement("button");
     submitButton.setAttribute("type", "submit");
     submitButton.classList.add("submit");
-    submitButton.textContent = "Submit";
     form.appendChild(submitButton);
 
     descriptionModal.div = modalDiv;
     descriptionModal.closeButton = closeButton;
     descriptionModal.submitButton = submitButton;
+    descriptionModal.textarea = textarea;
 
     descriptionModalButtons.addAllButtons();
   },

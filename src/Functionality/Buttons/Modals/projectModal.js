@@ -27,8 +27,7 @@ export const projectModalButtons = {
         const array = objectsInterface.projectsArray;
 
         if (formValidation.validateForm(name, array) === true) {
-          console.log("INVALID FROM");
-          modalsInterface.displayModal(projectModal.div);
+          modalsInterface.invalidInput(projectModal.nameInput);
           return;
         } else {
           const project = objectsInterface.createProject(
@@ -37,9 +36,13 @@ export const projectModalButtons = {
           );
 
           project.tasks = [];
+          project.status = 0;
           objectsInterface.changePriority(project, priority);
           objectsInterface.changeDescription(project, description);
-          objectsInterface.changeDueDate(task, projectDate);
+
+          if (!isNaN(projectDate.getTime())) {
+            objectsInterface.changeDueDate(project, projectDate);
+          }
 
           array.push(project);
 
@@ -49,17 +52,19 @@ export const projectModalButtons = {
         const project =
           objectsInterface.projectsArray[objectsInterface.indexOfProject];
 
-        console.log(project);
-
         const array = project.tasks;
 
         const task = objectsInterface.createProject(
           objectsInterface.createMode,
           name
         );
+        task.status = 0;
         objectsInterface.changePriority(task, priority);
         objectsInterface.changeDescription(task, description);
-        objectsInterface.changeDueDate(task, projectDate);
+
+        if (!isNaN(projectDate.getTime())) {
+          objectsInterface.changeDueDate(task, projectDate);
+        }
 
         array.push(task);
 
@@ -77,6 +82,7 @@ export const projectModalButtons = {
       e.preventDefault();
 
       modalsInterface.clearInputs(projectModal.div);
+      modalsInterface.undoInvalidInput(projectModal.nameInput);
       modalsInterface.displayModal(projectModal.div);
     };
   },

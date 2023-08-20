@@ -223,21 +223,6 @@ form * {
     color: var(--form-text-color);
 }
 
-.rename-modal > form,
-.description-modal > form
-.date-modal > form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-
-
-
 form > button {
     background-position: center;
     background-size: cover;
@@ -287,13 +272,17 @@ form > label > textarea {
     height: 75px;
 }
 
+.invalid {
+    border: 1px solid #ba2525;
+}
+
 .date-modal {
     width: 250px;
     height: 150px;
     padding: 10px;
 }
 .rename-modal {
-    height: 100px;
+    height: 150px;
     width: 300px;
 }
 
@@ -305,7 +294,9 @@ form > label > textarea {
 }
 
 .project-modal > form,
-.date-modal > form {
+.date-modal > form,
+.description-modal > form,
+.rename-modal > form {
     display: grid;
     box-sizing: border-box;
 
@@ -349,7 +340,7 @@ form > .submit:hover {
 
 
 .description-modal {
-    height: 300px;
+    height: 250px;
     width: 300px;
 }
 
@@ -368,11 +359,14 @@ form > .submit:hover {
     
     display: grid;
     grid-template-rows: 40px;
+    /* grid-template-columns: 1fr 160px; */
     grid-auto-flow: row;
     grid-auto-rows: 90px;
     gap: 10px;
 
     padding: 34px 0px 0px 0px;
+
+    overflow: auto;
 }
 
 .hero > .project-container {
@@ -401,8 +395,8 @@ form > .submit:hover {
 
     max-height: 100px;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows:1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px;
     grid-auto-flow: row;
     grid-auto-rows: 1fr;
 
@@ -411,15 +405,14 @@ form > .submit:hover {
     background-color: #F4F5F4;
 }
 
-.project-container .description {
-    grid-column: 1 / 3;
-}
-
-
 .project-container .button-div {
-    display: flex;
+    display: grid;
     align-items: center;
-    gap: 5px;
+
+    grid-auto-flow: column;
+    grid-auto-columns: 40px;
+
+    gap: 10px;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
 
@@ -480,12 +473,13 @@ form > .submit:hover {
 
 .hero > .project-div {
     border-radius: 20px;
+    padding: 10px 15px;
+    min-width: 430px;
 
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 1fr;
-    padding: 10px 15px;
 
     background-color: #F4F5F4
 }
@@ -526,7 +520,7 @@ form > .submit:hover {
 
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: repeat(5, 40px);
+    grid-template-columns: repeat(6, 40px) 80px;
     grid-auto-flow: column;
     grid-auto-rows: 40px;
 
@@ -549,20 +543,42 @@ form > .submit:hover {
     background-color: inherit
 }
 
+.button-div > button:hover {
+    width: 34px;
+    height: 34px;
+}
+
 .button-div > .rename{
     background-image: url(img/abc_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
+.button-div > .rename:hover{
+    background-image: url(img/abc_FILL0_wght400_GRAD0_opsz48\ HOVER.svg);
 }
 
 .button-div > .description{
     background-image: url(img/description_FILL0_wght400_GRAD0_opsz48.svg);
 }
 
+.button-div > .description:hover{
+    background-image: url(img/description_FILL0_wght400_GRAD0_opsz48\ HOVER.svg);
+}
+
 .button-div > .delete {
     background-image: url(img/delete_FILL0_wght300_GRAD0_opsz48.svg);
 }
 
-.button-div > .checkbox {
+.button-div > .delete:hover {
+    background-image: url(img/delete_FILL0_wght300_GRAD0_opsz48\ HOVER.svg);
+}
+
+.button-div > .checkbox.zero {
     background-color: rgb(218, 29, 29);
+    border: none;
+}
+
+.button-div > .checkbox.one {
+    background-color:  rgb(31, 171, 26);
     border: none;
 }
 

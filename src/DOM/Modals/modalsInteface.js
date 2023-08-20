@@ -20,4 +20,13 @@ export const modalsInterface = {
       input.value = "";
     });
   },
+  clearSingleInput: function (input) {
+    input.value = "";
+  },
+  invalidInput: function (input) {
+    input.classList.add("invalid");
+  },
+  undoInvalidInput: function (input) {
+    input.classList.remove("invalid");
+  },
 };
